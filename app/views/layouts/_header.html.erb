@@ -1,0 +1,34 @@
+<header class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+      <li class="nav-item">
+        <%= link_to image_tag("en.png", alt: "Logo", class: "flag"), locale:"en" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to image_tag("vi.png", alt: "Logo", class: "flag"), locale:"vi" %>
+      </li>
+      <% if false %>
+        <li class="nav-item dropdown ms-4">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= t ".hello" %>, <%= yield :user_name %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li class="dropdown-item"><%= link_to t(".profile"), "#" %></li>
+            <li class="dropdown-item"><%= link_to t(".change_password"), "#" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="dropdown-item"><%= link_to t(".logout"), "#", class: "text-danger" %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li class="nav-item ms-4">
+          <%= link_to t(".login"), "#" %>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary">
+            <%= link_to t(".signup"), "#", class: "text-white" %>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</header>

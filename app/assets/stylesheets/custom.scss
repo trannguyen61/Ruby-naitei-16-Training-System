@@ -1,0 +1,17 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "./colors.scss";
+@import "./layouts/header.scss";
+@import "./layouts/footer.scss";
+@import "./layouts/sidebar.scss";
+
+a {
+    text-decoration: none;
+    color: $link_text;
+}
+
+.app {
+    display: flex;
+    background-color: $main_bg;
+}

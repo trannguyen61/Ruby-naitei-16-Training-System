@@ -5,3 +5,18 @@ en:
       project_name: "Training System"
       english: "English"
       vietnamese: "Vietnamese"
+    header:
+      profile: "Profile"
+      change_password: "Change password"
+      logout: "Log out"
+      login: "Log in"
+      signup: "Signup"
+      hello: "Hello"
+    sidebar:
+      courses: "Courses"
+      report_history: "Report history"
+      report: "Create report"
+  shared:
+    error_messages:
+      intro: "The form contains"
+      error: "error"
