@@ -1,0 +1,7 @@
+en:
+  hello: "Hello world"
+  layouts:
+    application:
+      project_name: "Training System"
+      english: "English"
+      vietnamese: "Vietnamese"

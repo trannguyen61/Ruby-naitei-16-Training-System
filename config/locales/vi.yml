@@ -1,0 +1,7 @@
+vi:
+  hello: "Hello world"
+  layouts:
+    application:
+      project_name: "Hệ Thống Đào Tạo"
+      english: "Tiếng Anh"
+      vietnamese: "Tiếng Việt"
