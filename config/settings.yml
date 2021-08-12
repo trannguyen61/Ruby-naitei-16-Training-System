@@ -1,0 +1,15 @@
+
+string:
+  length:
+    max: 50
+user:
+  email:
+    valid_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  password:
+    length:
+      min: 6
+    reset:
+      expried_time: 2
+subject:
+  length:
+    min: 1
