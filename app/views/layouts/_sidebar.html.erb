@@ -1,0 +1,20 @@
+<div class="sidebar">
+  <ul class="nav flex-column">
+    <li class="nav-item logo">
+      <%= image_tag("sun.png", alt: "Logo", class: "logo--img") %>
+      <h6 class="mb-0 ms-1 text-white"><%= t ".edu" %></h6>
+    </li>
+    <li class="nav-item sidebar--item">
+      <i class="fas fa-graduation-cap"></i>
+      <%= link_to t(".courses"), "#" %>
+    </li>
+    <li class="nav-item sidebar--item">
+      <i class="fas fa-calendar-week"></i>
+      <%= link_to t(".report_history"), "#" %>
+    </li>
+    <li class="nav-item sidebar--item">
+      <i class="fas fa-edit"></i>
+      <%= link_to t(".report"), "#" %>
+    </li>
+  </ul>
+</div>

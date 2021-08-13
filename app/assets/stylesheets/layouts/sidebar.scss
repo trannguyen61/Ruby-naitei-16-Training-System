@@ -1,0 +1,52 @@
+@import "../colors.scss";
+
+.sidebar {
+  background-color: $sidebar;
+  min-height: 100vh;
+  min-width: 15%;
+
+  &--item {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    
+    a, i {
+      color: $blur;
+    }
+
+    i {
+      font-size: 1.5em;
+      margin-right: 10px;
+      min-width: 35px;
+    }
+
+    &:hover {
+      background-color: $hover;
+      cursor: pointer;
+
+      a, i {
+        color: white;
+      }
+    }
+
+    &:active {
+      background-color: $active;
+
+      a, i {
+        color: white;
+      }
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 15px 20px;
+
+    &--img {
+      height: 30px;
+      width: auto;
+    }
+  }
+}
