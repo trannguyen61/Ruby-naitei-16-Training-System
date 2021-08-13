@@ -1,0 +1,31 @@
+<header class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+      <% Settings.lang.all.each do |lang| %>
+        <li class="nav-item">
+        <%= link_to image_tag("#{lang}.png", alt: "Logo", class: "flag"), locale: "#{lang}" %>
+      </li>
+      <% end %>
+      <% if false %>
+        <li class="nav-item dropdown ms-4">
+          <%= link_to "#{t ".hello"}, #{yield :user_name}", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role:"button", "data-bs-toggle":"dropdown" %>
+          <ul class="dropdown-menu dropdown-menu dropdown-menu-lg-end">
+            <li class="dropdown-item"><%= link_to t(".profile"), "#" %></li>
+            <li class="dropdown-item"><%= link_to t(".change_password"), "#" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="dropdown-item"><%= link_to t(".logout"), "#", class: "text-danger" %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li class="nav-item ms-4">
+          <%= link_to t(".login"), "#" %>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary">
+            <%= link_to t(".signup"), "#", class: "text-white" %>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</header>

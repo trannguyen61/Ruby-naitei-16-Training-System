@@ -1,4 +1,3 @@
-
 string:
   length:
     max: 50
@@ -13,3 +12,7 @@ user:
 subject:
   length:
     min: 1
+lang:
+  en: "en"
+  vi: "vi"
+  all: ["en", "vi"]

@@ -5,3 +5,22 @@ vi:
       project_name: "Hệ Thống Đào Tạo"
       english: "Tiếng Anh"
       vietnamese: "Tiếng Việt"
+    header:
+      profile: "Trang cá nhân"
+      change_password: "Đổi mật khẩu"
+      logout: "Đăng xuất"
+      login: "Đăng nhập"
+      signup: "Đăng ký"
+      hello: "Xin chào"
+    sidebar:
+      courses: "Khóa học của tôi"
+      report_history: "Lịch sử báo cáo"
+      report: "Tạo báo cáo"
+      edu: "Education"
+    footer:
+      by: "Bởi"
+      credit: "Ruby Naitei - Vietnam Education Unit - All rights reserved."
+  shared:
+    error_messages:
+      intro: "Biểu mẫu có"
+      error: "lỗi"
