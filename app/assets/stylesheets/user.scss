@@ -1,0 +1,14 @@
+@import "./colors.scss";
+
+.user-signup {
+  .card {
+    min-width: 30%;
+    padding: 10px 10px;
+    box-shadow: 0 3px 8px $shadow;
+  }
+
+  .card-title {
+    margin-bottom: 20px;
+    text-align: center !important;
+  }
+}

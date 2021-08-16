@@ -6,6 +6,10 @@
 @import "./layouts/footer.scss";
 @import "./layouts/sidebar.scss";
 
+body {
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none;
   color: $link_text;
@@ -14,4 +18,26 @@ a {
 .app {
   display: flex;
   background-color: $main_bg;
+  min-height: 100vh;
+}
+
+.app-body {
+  height: calc(100vh - 70px - 50px);
+  overflow: auto;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 7%;
+}
+
+.btn-greeny {
+  background-color: $light-greeny;
+  border-color: $light-greeny;
+
+  &:hover {
+    background-color: $greeny;
+    border-color: $greeny;
+  }
 }

@@ -1,0 +1,29 @@
+<% provide :title, t(".login") %>
+<% provide :button_text, t(".login") %>
+
+<div class="center-container user-signup">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"><%= t ".login" %></h4>
+      
+      <%= form_for :session do |f| %>
+        <%= f.label :email, class: "form-label" %>
+        <%= f.email_field :email, class: "form-control mb-2" %>
+
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password, class: "form-control mb-2" %>
+
+        <%= f.label :remember_me, class: "form-check-label" do %>
+          <%= f.check_box :remember_me, class: "form-check-input" %>
+          <span><%= t ".remember_me" %></span>
+        <% end %>
+        
+        <div class="d-grid gap-2 col-6 mx-auto mt-3">
+          <%= f.submit yield(:button_text), class: "btn btn-primary btn-greeny" %>
+        </div>
+      <% end %>
+
+      <p class="mt-3"><%= t ".new_user" %> <%= link_to t("users.new.signup"), signup_path %></p>
+    </div>
+  </div>
+</div>

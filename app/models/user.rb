@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  POST_ATTRS = %i(name email gender
+  CREATE_ATTRS = %i(name email gender role
+    password password_confirmation).freeze
+  UPDATE_ATTRS = %i(name email gender date_of_birth address
     password password_confirmation).freeze
   PASSWORD_ATTRS = %i(password password_confirmation).freeze
 
@@ -18,7 +20,6 @@ class User < ApplicationRecord
             source: :finishable, source_type: Task.name
 
   before_save :downcase_email
-  before_create :create_activation_digest
   after_create :create_trainee
 
   validates :name, :role, presence: true
@@ -31,9 +32,51 @@ class User < ApplicationRecord
             length: {minimum: Settings.user.password.length.min},
             allow_nil: true
 
+  validate :check_user_role, on: :create
+
   has_secure_password
+
+  class << self
+    def digest string
+      check = ActiveModel::SecurePassword.min_cost
+      cost = check ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
+
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute :remember_digest, User.digest(remember_token)
+  end
+
+  def authenticated? attribute, token
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  def forget
+    update_attribute :remember_digest, nil
+  end
 
   def create_trainee
     create_trainee_info! if role_trainee?
+  end
+
+  def check_user_role
+    return unless role_trainee? && role_supervisor?
+
+    errors.add :role, :not_permitted_role
+  end
+
+  private
+
+  def downcase_email
+    email.downcase!
   end
 end

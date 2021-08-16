@@ -20,7 +20,37 @@ en:
     footer:
       by: "By"
       credit: "Ruby Naitei - Vietnam Education Unit - All rights reserved."
+  sessions:
+    new:
+      login: "Login"
+      remember_me: "Remember me"
+      new_user: "Haven't had an account yet?"
+    create:
+      login_error: "Login failed. Please try again."
   shared:
     error_messages:
       intro: "The form contains"
       error: "error"
+  users:
+    new:
+      signup: "Sign up"
+      has_acc: "Already has an account?"
+    create:
+      success_signup: "Signed up successfully"
+      fail_signup: "Sign up failed."
+  activerecord:
+    models:
+      user:
+        one: "User"
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirm password"
+        trainee: "Trainee"
+        supervisor: "Supervisor"
+    errors:
+      models:
+        user:
+          attributes:
+            role:
+              not_permitted_role: "Not permitted role."
