@@ -20,7 +20,37 @@ vi:
     footer:
       by: "Bởi"
       credit: "Ruby Naitei - Vietnam Education Unit - All rights reserved."
+  sessions:
+    new:
+      login: "Đăng nhập"
+      remember_me: "Ghi nhớ đăng nhập"
+      new_user: "Bạn chưa có tài khoản?"
+    create:
+      login_error: "Đăng nhập thất bại. Vui lòng thử lại."
   shared:
     error_messages:
       intro: "Biểu mẫu có"
       error: "lỗi"
+  users:
+    new:
+      signup: "Đăng ký"
+      has_acc: "Đã có tài khoản?"
+    create:
+      success_signup: "Đăng ký tài khoản thành công."
+      fail_signup: "Đăng ký thất bại."
+  activerecord:
+    attributes:
+      user:
+        one: "Người dùng"
+        name: "Tên"
+        email: "Địa chỉ email"
+        password: "Password"
+        password_confirmation: "Nhập lại password"
+        trainee: "Học sinh"
+        supervisor: "Giảng viên"
+    errors:
+      models:
+        user:
+          attributes:
+            role:
+              not_permitted_role: "Không thể tạo vai trò này."
