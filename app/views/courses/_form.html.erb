@@ -1,0 +1,10 @@
+<%= form_for @course do |f| %>
+  <%= render partial: "shared/error_messages", locals: {object: @course} %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control" %>
+  <%= f.label :start_time %>
+  <%= f.date_field :start_time, class: "form-control" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

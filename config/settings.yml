@@ -1,3 +1,4 @@
+pic_url: "https://picsum.photos/seed/picsum/200/300"
 string:
   length:
     max: 50
@@ -16,3 +17,4 @@ lang:
   en: "en"
   vi: "vi"
   all: ["en", "vi"]
+page_size: 8
