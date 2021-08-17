@@ -1,0 +1,17 @@
+<h1><%= t ".name" %></h1>
+<div class="row">
+  <%= paginate @courses, theme: "bootstrap-5"%>
+</div>
+<div class="row d-flex justify-content-start">
+  <% if current_user.role_supervisor? %>
+    <div class="col-sm-12 col-md-6 col-xl-4 align-self-center mt-3 mb-3">
+      <div class="d-flex justify-content-center">
+        <%= link_to "", new_course_path, class: "plus-button plus-button--large" %>
+      </div>
+    </div>
+  <% end %>
+  <%= render @courses %>
+</div>
+<div class="row">
+  <%= paginate @courses, theme: "bootstrap-5"%>
+</div>

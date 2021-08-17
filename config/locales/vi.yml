@@ -1,4 +1,5 @@
 vi:
+  please_login: "Hãy đăng nhập!"
   hello: "Hello world"
   layouts:
     application:
@@ -27,6 +28,14 @@ vi:
       new_user: "Bạn chưa có tài khoản?"
     create:
       login_error: "Đăng nhập thất bại. Vui lòng thử lại."
+  courses:
+    create_success: "Tạo khóa học thành công"
+    create_fail: "Tạo khóa học thất bại"
+    index:
+      name: "Khóa học"
+    new:
+      name: "Tạo khóa học mới"
+      submit: "Tạo mới"
   shared:
     error_messages:
       intro: "Biểu mẫu có"
@@ -48,6 +57,11 @@ vi:
         password_confirmation: "Nhập lại password"
         trainee: "Học sinh"
         supervisor: "Giảng viên"
+      course:
+        name: "Tên khóa"
+        description: "Mô tả"
+        start_time: "Thời gian bắt đầu"
+        finish_time: "Thời gian kết thúc"
     errors:
       models:
         user:

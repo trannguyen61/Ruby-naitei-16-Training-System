@@ -1,4 +1,5 @@
 en:
+  please_login: "Please Login!"
   hello: "Hello world"
   layouts:
     application:
@@ -27,6 +28,14 @@ en:
       new_user: "Haven't had an account yet?"
     create:
       login_error: "Login failed. Please try again."
+  courses:
+    create_success: "Course has been created"
+    create_fail: "Course has not been created"
+    index:
+      name: "Courses"
+    new:
+      name: "Create New Course"
+      submit: "Create"
   shared:
     error_messages:
       intro: "The form contains"
@@ -48,6 +57,11 @@ en:
         password_confirmation: "Confirm password"
         trainee: "Trainee"
         supervisor: "Supervisor"
+      course:
+        name: "Name"
+        description: "Description"
+        start_time: "Start time"
+        finish_time: "Finish time"
     errors:
       models:
         user:
