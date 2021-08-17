@@ -11,7 +11,17 @@ class CoursesController < ApplicationController
                end
   end
 
-  def show; end
+  def show
+    @course = Course.find_by id: params[:id]
+    if @course
+      @subjects = @course.subjects.page(params[:page])
+                         .per Settings.subject.paginate
+      @subject = @course.subjects.new
+    else
+      flash[:danger] = t "courses.invalid_course"
+      redirect_to courses_path
+    end
+  end
 
   def new
     @course = Course.new
@@ -39,9 +49,5 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit Course::POST_ATTRS
-  end
-
-  def supervisor_user
-    redirect_to root_url unless current_user.role_supervisor?
   end
 end

@@ -1,0 +1,21 @@
+<tr class="subjects">
+  <td><%= subject.name %></span></td>
+  <td><%= subject.description %></td>
+  <td><%= subject.length %></td>
+  <td> 
+    <%= link_to "#", class: "text-muted", "data-mdb-toggle":"tooltip", title: t("subjects.index.created_at") do %>
+      <p class="small mb-0">
+        <i class="fas fa-info-circle me-2"></i>
+        <%= subject.start_time %>
+      </p>
+    <% end %>
+  </td>
+  <td>  
+    <%= link_to "#", class: "text-info", "data-mdb-toggle":"tooltip", title: t("subjects.index.edit") do %>
+      <i class="fas fa-pencil-alt me-3"></i>
+    <% end %>
+    <%= link_to "#", class: "text-danger", "data-mdb-toggle":"tooltip", title: t("subjects.index.delete") do %>
+      <i class="fa fa-trash-alt me-3"></i>
+    <% end %>
+  </td>
+</tr>

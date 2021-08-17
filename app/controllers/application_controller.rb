@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "please_login"
     redirect_to login_url
   end
+
+  def supervisor_user
+    redirect_to root_url unless current_user.role_supervisor?
+  end
 end
