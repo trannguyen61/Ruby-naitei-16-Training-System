@@ -10,7 +10,7 @@
         <li class="nav-item dropdown ms-4">
           <%= link_to "#{t ".hello"}, #{current_user.name}", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role:"button", "data-bs-toggle":"dropdown" %>
           <ul class="dropdown-menu dropdown-menu dropdown-menu-lg-end">
-            <li class="dropdown-item"><%= link_to t(".profile"), "#" %></li>
+            <li class="dropdown-item"><%= link_to t(".profile"), edit_user_path(current_user) %></li>
             <li class="dropdown-item"><%= link_to t(".change_password"), "#" %></li>
             <li><hr class="dropdown-divider"></li>
             <li class="dropdown-item"><%= link_to t(".logout"), logout_path, method: :delete, class: "text-danger" %></li>

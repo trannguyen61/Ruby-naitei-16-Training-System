@@ -1,0 +1,75 @@
+<% provide :title, t(".edit_profile") %>
+<% provide :button_text, t(".edit_profile") %>
+
+<div class="center-container user-edit-profile">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= t ".edit_profile" %>
+      </h4>
+      <%= form_for @user, html: {class: ["user-form"]} do |f| %>
+        <div class="row">
+          <div class="<%= current_user.role_trainee? ? "col-6 col-border-right" : "" %>">
+            <%= render "shared/error_messages", object: f.object %>
+
+            <%= f.label :name, class: "form-label" %>
+            <%= f.text_field :name, class: "form-control mb-2" %>
+            
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, class: "form-control mb-2" %>
+
+            <%= f.label :date_of_birth, class: "form-label" %>
+            <%= f.date_field :date_of_birth, class: "form-control mb-2" %>
+
+            <%= f.label :gender, class: "form-label" %>
+            <div class="d-flex mb-2">
+              <% User.genders.keys.each do |gender| %>
+                <div class="me-auto">
+                  <%= f.radio_button :gender, gender, class: "form-check-input" %>
+                  <%= f.label gender.to_sym %>
+                </div>
+              <% end %>
+            </div>
+
+            <%= f.label :address, class: "form-label" %>
+            <%= f.text_field :address, class: "form-control mb-2" %>
+
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, class: "form-control mb-2" %>
+
+            <%= f.label :password_confirmation, class: "form-label" %>
+            <%= f.password_field :password_confirmation, class: "form-control mb-2" %>
+          </div>
+
+          <% if current_user.role_trainee? %>
+            <div class="col-6">
+              <%= f.fields_for :trainee_info, html: {class: ["user-form", "trainee-form"]} do |ff| %>
+                <div class="d-flex flex-column trainee-container">
+                  <div>
+                    <%= render "shared/error_messages", object: ff.object %>
+
+                    <%= ff.label :university, class: "form-label" %>
+                    <%= ff.text_field :university, class: "form-control mb-2" %>
+
+                    <%= ff.label :garaduate_year, class: "form-label" %>
+                    <%= ff.number_field :garaduate_year, class: "form-control mb-2" %>
+
+                    <%= ff.label :start_training_time, class: "form-label" %>
+                    <%= ff.date_field :start_training_time, class: "form-control mb-2" %>
+
+                    <%= ff.label :finish_training_time, class: "form-label" %>
+                    <%= ff.date_field :finish_training_time, class: "form-control mb-2" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div class="d-grid gap-2 col-6 mx-auto mt-3">
+            <%= f.submit t(".edit_profile_btn"), class: "btn btn-primary btn-greeny" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

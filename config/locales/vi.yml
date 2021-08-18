@@ -52,6 +52,9 @@ vi:
     error_messages:
       intro: "Biểu mẫu có"
       error: "lỗi"
+  trainee_infos:
+    profile_updated: "Thông tin cá nhân đã được cập nhật."
+    fail_updated: "Cập nhật thất bại."
   users:
     new:
       signup: "Đăng ký"
@@ -59,6 +62,13 @@ vi:
     create:
       success_signup: "Đăng ký tài khoản thành công."
       fail_signup: "Đăng ký thất bại."
+    edit:
+      edit_profile: "Sửa thông tin"
+      edit_profile_btn: "Sửa thông tin chung"
+      edit_trainee_btn: "Sửa thông tin học sinh"
+    update:
+      profile_updated: "Thông tin cá nhân đã được cập nhật."
+      fail_updated: "Cập nhật thất bại."
   subjects:
     index:
       subject_list: "Danh sách môn học"
@@ -93,6 +103,18 @@ vi:
         password_confirmation: "Nhập lại password"
         trainee: "Học sinh"
         supervisor: "Giảng viên"
+        male: "Nam"
+        female: "Nữ"
+        unknown: "Chưa rõ"
+        date_of_birth: "Sinh nhật"
+        address: "Địa chỉ"
+        gender: "Giới tính"
+      trainee_info:
+        one: "Thông tin học sinh"
+        university: "Trường học"
+        garaduate_year: "Năm tốt nghiệp"
+        start_training_time: "Thời gian bắt đầu training"
+        finish_training_time: "Thời gian kết thúc training"
       course:
         name: "Tên khóa"
         description: "Mô tả"
