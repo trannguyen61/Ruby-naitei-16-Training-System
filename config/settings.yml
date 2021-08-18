@@ -13,6 +13,9 @@ user:
 subject:
   length:
     min: 1
+  name:
+    max_length: 140
+  paginate: 10
 lang:
   en: "en"
   vi: "vi"

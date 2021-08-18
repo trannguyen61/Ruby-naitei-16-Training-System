@@ -36,6 +36,17 @@ en:
     new:
       name: "Create New Course"
       submit: "Create"
+    show:
+      subject_list: "Subject List"
+      id: "Id"
+      name: "Name"
+      description: "Description"
+      length: "Length (Days)"
+      action: "Action"
+      time: "Time"
+      created_at: "Start time"
+      edit: "Edit"
+      delete: "Delete"
   shared:
     error_messages:
       intro: "The form contains"
@@ -47,6 +58,30 @@ en:
     create:
       success_signup: "Signed up successfully"
       fail_signup: "Sign up failed."
+  subjects:
+    index:
+      subject_list: "Subject List"
+      id: "Id"
+      name: "Name"
+      description: "Description"
+      length: "Length (Days)"
+      action: "Action"
+      time: "Time"
+      created_at: "Start time"
+      edit: "Edit"
+      delete: "Delete"
+    create:
+      success_create: "Subject created!"
+      fail_create: "Error orcur: Created fail!"
+    subject_form:
+      title: "Create Subject"
+      subject_name: "Subject name:"
+      subject_description: "Description"
+      subject_start_time": "Start time"
+      subject_length: "Length (Days)"
+      create_submit: "Create"
+    error:
+      must_start_after_course: "Subject must start after course's start time"
   activerecord:
     models:
       user:
@@ -68,3 +103,6 @@ en:
           attributes:
             role:
               not_permitted_role: "Not permitted role."
+        subjects:
+          attributes:
+            start_time: "Subject must start after course's start time"

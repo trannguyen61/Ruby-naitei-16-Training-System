@@ -29,6 +29,7 @@ vi:
     create:
       login_error: "Đăng nhập thất bại. Vui lòng thử lại."
   courses:
+    invalid_course: "Lỗi: Khóa học không tồn tại!"
     create_success: "Tạo khóa học thành công"
     create_fail: "Tạo khóa học thất bại"
     index:
@@ -36,6 +37,17 @@ vi:
     new:
       name: "Tạo khóa học mới"
       submit: "Tạo mới"
+    show:
+      subject_list: "Danh sách môn học"
+      id: "Id"
+      name: "Tên"
+      description: "Thông tin"
+      length: "Thời lượng học (Ngày)"
+      action: "Thao tác"
+      time: "Ngày bắt đầu"
+      created_at: "Ngày tiến hành"
+      edit: "Thay đổi"
+      delete: "Hủy bỏ"
   shared:
     error_messages:
       intro: "Biểu mẫu có"
@@ -47,6 +59,30 @@ vi:
     create:
       success_signup: "Đăng ký tài khoản thành công."
       fail_signup: "Đăng ký thất bại."
+  subjects:
+    index:
+      subject_list: "Danh sách môn học"
+      id: "Id"
+      name: "Tên"
+      description: "Thông tin"
+      length: "Thời lượng học (Ngày)"
+      action: "Thao tác"
+      time: "Ngày bắt đầu"
+      created_at: "Ngày tiến hành"
+      edit: "Thay đổi"
+      delete: "Hủy bỏ"
+    create:
+      success_create: "Thành công: Tạo mới môn học!"
+      fail_create: "Lỗi: Thêm mới môn học thất bại!"
+    subject_form:
+      title: "Thêm môn học"
+      subject_name: "Tên môn học"
+      subject_description: "Mô tả"
+      subject_start_time: "Ngày bắt đầu"
+      subject_length: "Thời lượng (Ngày)"
+      create_submit: "Tạo mới"
+    error:
+      must_start_after_course: "Thời gian bắt đầu môn học phải sau theo thời gian bắt đầu khóa học"
   activerecord:
     attributes:
       user:

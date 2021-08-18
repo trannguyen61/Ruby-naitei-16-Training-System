@@ -1,16 +1,18 @@
 <div class="col-sm-12 col-md-6 col-xl-4 align-self-stretch mt-3 mb-3">
-  <div class="card">
-    <%= image_tag Settings.pic_url, alt: course.name, class: "card-img-top" %>
-    <div class="card-body">
-      <h5 class="card-title">
-        <%= course.name %>
-      </h5>
-      <p class="card-text crop">
-        <%= course.description %>
-      </p>
+  <%= link_to course_path course.id do %>
+    <div class="card">
+      <%= image_tag Settings.pic_url, alt: course.name, class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= course.name %>
+        </h5>
+        <p class="card-text crop">
+          <%= course.description %>
+        </p>
+      </div>
+      <div class="card-footer text-muted">
+        <%= course.start_time %>
+      </div>
     </div>
-    <div class="card-footer text-muted">
-      <%= course.start_time %>
-    </div>
-  </div>
+  <% end %>
 </div>
