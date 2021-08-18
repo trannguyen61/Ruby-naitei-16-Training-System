@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :tasks, through: :statuses,
             source: :finishable, source_type: Task.name
 
+  accepts_nested_attributes_for :trainee_info, update_only: true
+
   before_save :downcase_email
   after_create :create_trainee
 

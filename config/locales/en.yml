@@ -51,6 +51,9 @@ en:
     error_messages:
       intro: "The form contains"
       error: "error"
+  trainee_infos:
+    profile_updated: "Profile updated."
+    fail_updated: "Update failed"
   users:
     new:
       signup: "Sign up"
@@ -58,6 +61,13 @@ en:
     create:
       success_signup: "Signed up successfully"
       fail_signup: "Sign up failed."
+    edit:
+      edit_profile: "Edit profile"
+      edit_profile_btn: "Edit general profile"
+      edit_trainee_btn: "Edit trainee information"
+    update:
+      profile_updated: "Profile updated."
+      fail_updated: "Update failed"
   subjects:
     index:
       subject_list: "Subject List"
@@ -92,6 +102,18 @@ en:
         password_confirmation: "Confirm password"
         trainee: "Trainee"
         supervisor: "Supervisor"
+        male: "Male"
+        female: "Female"
+        unknown: "Unknown"
+        date_of_birth: "Date of birth"
+        address: "Address"
+        gender: "Gender"
+      trainee_info:
+        one: "Trainee Info"
+        university: "University"
+        garaduate_year: "Graduate year"
+        start_training_time: "Start training time"
+        finish_training_time: "Finish training time"
       course:
         name: "Name"
         description: "Description"

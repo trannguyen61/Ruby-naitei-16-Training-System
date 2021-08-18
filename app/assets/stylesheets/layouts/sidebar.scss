@@ -4,6 +4,7 @@
   background-color: $sidebar;
   min-height: 100vh;
   min-width: 15%;
+  z-index: 1;
 
   &--item {
     padding: 15px 20px;
