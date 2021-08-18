@@ -15,26 +15,33 @@
     </div>
   </div>
 </div>
-<div class="subject-container">
-  <h3>
-    <%= t ".subject_list" %>
-    <%= @course.name %>
-  </h3>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col"><%= t ".name" %></th>
-        <th scope="col"><%= t ".description" %></th>
-        <th scope="col"><%= t ".length" %></th>
-        <th scope="col"><%= t ".time" %></th>
-        <th scope="col"><%= t ".action" %></th>
-    </thead>
-    <tbody>
-      <%= render @subjects %>
-    </tbody>
-  </table>
-  <%= paginate @subjects, theme: "bootstrap-5" %>
-  <section class="subject-form center_div">
-    <%= render "subjects/subject_form" %>
-  </section>
+<br>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-subjects-tab" data-bs-toggle="tab" data-bs-target="#nav-subjects"
+    type="button" role="tab" aria-controls="nav-subjects" aria-selected="true">
+      <%= t ".subjects"%>
+    </button>
+    <button class="nav-link" id="nav-trainees-tab" data-bs-toggle="tab" data-bs-target="#nav-trainees"
+    type="button" role="tab" aria-controls="nav-trainees" aria-selected="false">
+      <%= t ".trainees"%>
+    </button>
+    <button class="nav-link" id="nav-supervisors-tab" data-bs-toggle="tab" data-bs-target="#nav-supervisors"
+    type="button" role="tab" aria-controls="nav-supervisors" aria-selected="false">
+      <%= t ".supervisors"%>
+    </button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-subjects" role="tabpanel" aria-labelledby="nav-subjects-tab">
+    <%= render partial: "subjects_list", locals: {subjects: @subjects} %>
+  </div>
+  <div class="tab-pane fade course-details" id="nav-trainees" role="tabpanel" aria-labelledby="nav-trainees-tab">
+    <%= render partial: "users_list", locals: {users: @trainees, list_name: t(".trainees_list"), path: enrollments_path,
+    button_text: t(".add_trainee"), body_id: "trainees_tb_body"} %>
+  </div>
+  <div class="tab-pane fade course-details" id="nav-supervisors" role="tabpanel" aria-labelledby="nav-supervisors-tab">
+    <%= render partial: "users_list", locals: {users: @supervisors, list_name: t(".supervisors_list"), path: supervisions_path,
+    button_text: t(".add_supervisor"), body_id: "supervisors_tb_body"}%>
+  </div>
 </div>
