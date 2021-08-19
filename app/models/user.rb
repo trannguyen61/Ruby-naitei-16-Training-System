@@ -4,6 +4,9 @@ class User < ApplicationRecord
   UPDATE_ATTRS = %i(name email gender date_of_birth address
     password password_confirmation).freeze
   PASSWORD_ATTRS = %i(password password_confirmation).freeze
+  SHOW_ATTRS = %i(name email gender date_of_birth address).freeze
+  TRANSLATED_VALUE_ATTRS = %i(role gender).freeze
+  DATE_ATTRS = %i(date_of_birth).freeze
 
   enum gender: {unknown: 0, male: 1, female: 2}, _prefix: :gender
   enum role: {trainee: 0, supervisor: 1, admin: 2}, _prefix: :role

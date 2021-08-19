@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :load_user, except: %i(new create)
-  before_action :logged_in_user, only: %i(edit update)
+  before_action :logged_in_user, only: %i(show edit update)
   before_action :correct_user, only: %i(edit update)
+  before_action :see_other_users, only: %i(show)
 
   def new
     @user = User.new
@@ -18,10 +19,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @trainee = TraineeInfo.find_by user_id: params[:id]
+    @user_fields = User::SHOW_ATTRS
+    @translated_fields = User::TRANSLATED_VALUE_ATTRS
+    @trainee_fields = TraineeInfo::SHOW_ATTRS
+    @date_fields = *TraineeInfo::DATE_ATTRS, *User::DATE_ATTRS
+  end
+
   def edit
     return unless @user.role_trainee?
 
-    @user.trainee_info = TraineeInfo.find_by id: params[:id]
+    @user.trainee_info = TraineeInfo.find_by user_id: params[:id]
   end
 
   def update
@@ -50,5 +59,15 @@ class UsersController < ApplicationController
 
   def correct_user
     redirect_to root_url unless current_user? @user
+  end
+
+  def see_other_users
+    return if @user.role_trainee? ||
+              current_user?(@user) ||
+              current_user.role_supervisor? ||
+              current_user.role_admin?
+
+    flash[:danger] = t "no_permission"
+    redirect_to root_url
   end
 end

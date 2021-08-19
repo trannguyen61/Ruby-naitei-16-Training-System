@@ -35,3 +35,13 @@
 .user-form {
   padding: 0 10px
 }
+
+.info-container {
+  .info--title {
+    font-size: 1.3em;
+    color: white;
+    background-color: $title-header;
+    padding: 5px 15px;
+    margin: 10px 0;
+  }
+}

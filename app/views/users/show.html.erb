@@ -1,0 +1,78 @@
+<% provide :title, t(".user_profile") %>
+
+<div class="row my-4 mx-4">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body mx-2">
+        <h4 class="card-title mb-4">
+            <strong><%= t "activerecord.models.user.#{@user.role}" %></strong>
+        </h4>
+
+        <h5>
+          <strong><%= @user.name %></strong>
+        </h5>
+        <p>
+          <%= t "activerecord.models.user.email" %>: <%= @user.email %>
+        </p>
+
+        <% if current_user? @user %>
+          <button type="button" class="btn btn-light">
+            <%= link_to t(".edit_profile"), edit_user_path(current_user) %>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <div class="card">
+      <div class="card-body">
+        <div class="info-container">
+          <div class="info--title">
+            <%= t ".general_info" %>
+          </div>
+
+          <% @user_fields.each do |key| %>
+            <div class="row mx-1">
+              <div class="col-4">
+                <p><strong><%= t "activerecord.models.user.#{key}" %></strong></p>
+              </div>
+              <div class="col-8">
+                <% if @translated_fields.include? key %>
+                  <p><%= t "activerecord.models.user.#{@user[key]}" %></p>
+                <% elsif @date_fields.include?(key) && @user[key].present? %>
+                  <p><%= @user[key].strftime Settings.date_format %></p>
+                <% else %>
+                  <p><%= @user[key] %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <% if @user.role_trainee? %>
+          <div class="info-container">
+            <div class="info--title">
+              <%= t ".trainee_info" %>
+            </div>
+
+            <% @trainee_fields.each do |key| %>
+              <div class="row mx-1">
+                <div class="col-4">
+                  <p><strong><%= t "activerecord.models.trainee_info.#{key}" %></strong></p>
+                </div>
+                <div class="col-8">
+                  <% if @date_fields.include? key && @trainee[key].present? %>
+                    <p><%= @trainee[key].strftime Settings.date_format %></p>
+                  <% else %>
+                    <p><%= @trainee[key] %></p>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
