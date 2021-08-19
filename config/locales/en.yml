@@ -4,6 +4,7 @@ en:
   in_progress: "In progress"
   finished: "Finished"
   not_activated: "Not Activated"
+  no_permission: "You don't have the permission to access this endpoint."
   layouts:
     application:
       project_name: "Training System"
@@ -78,6 +79,11 @@ en:
     update:
       profile_updated: "Profile updated."
       fail_updated: "Update failed"
+    show:
+      user_profile: "User profile"
+      edit_profile: "Edit profile"
+      general_info: "General information"
+      trainee_info: "Trainee information"
   subjects:
     index:
       subject_list: "Subject List"

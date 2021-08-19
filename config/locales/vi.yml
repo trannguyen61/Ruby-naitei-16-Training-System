@@ -4,6 +4,7 @@ vi:
   in_progress: "Đang tiến hành"
   finished: "Hoàn thành"
   not_activated: "Chưa kích hoạt"
+  no_permission: "Bạn không có quyền truy cập vào trang này."
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
@@ -78,6 +79,11 @@ vi:
     update:
       profile_updated: "Thông tin cá nhân đã được cập nhật."
       fail_updated: "Cập nhật thất bại."
+    show:
+      user_profile: "Thông tin người dùng"
+      edit_profile: "Sửa thông tin"
+      general_info: "Thông tin chung"
+      trainee_info: "Thông tin học sinh"
   subjects:
     index:
       subject_list: "Danh sách môn học"
@@ -103,7 +109,7 @@ vi:
     error:
       must_start_after_course: "Thời gian bắt đầu môn học phải sau theo thời gian bắt đầu khóa học"
   activerecord:
-    attributes:
+    models:
       user:
         one: "Người dùng"
         name: "Tên"

@@ -3,6 +3,8 @@ class TraineeInfo < TraineeOnly
   DATE_ATTRS = %i(start_training_time finish_training_time).freeze
   UPDATE_ATTRS = %i(id university garaduate_year
                     start_training_time finish_training_time).freeze
+  SHOW_ATTRS = %i(university garaduate_year
+                  start_training_time finish_training_time).freeze
 
   validates :university, length: {maximum: Settings.string.length.max}
   validates :garaduate_year,

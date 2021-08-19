@@ -12,10 +12,10 @@
           <div class="<%= current_user.role_trainee? ? "col-6 col-border-right" : "" %>">
             <%= render "shared/error_messages", object: f.object %>
 
-            <%= f.label :name, class: "form-label" %>
+            <%= f.label :name, class: "form-label required" %>
             <%= f.text_field :name, class: "form-control mb-2" %>
             
-            <%= f.label :email, class: "form-label" %>
+            <%= f.label :email, class: "form-label required" %>
             <%= f.email_field :email, class: "form-control mb-2" %>
 
             <%= f.label :date_of_birth, class: "form-label" %>

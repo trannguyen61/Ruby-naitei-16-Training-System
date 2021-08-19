@@ -27,6 +27,8 @@
 }
 
 .dropdown {
+  z-index: 99;
+  
   .dropdown-item {
     margin: 0 7px 0 7px;
   }
