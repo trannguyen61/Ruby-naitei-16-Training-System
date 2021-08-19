@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "not_found"
     redirect_to root_path
   end
+
+  def supervisor_user
+    redirect_to courses_path unless current_user.role_supervisor?
+  end
 end

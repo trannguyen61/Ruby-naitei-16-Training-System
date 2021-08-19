@@ -1,6 +1,9 @@
 vi:
   please_login: "Hãy đăng nhập!"
   hello: "Hello world"
+  in_progress: "Đang tiến hành"
+  finished: "Hoàn thành"
+  not_activated: "Chưa kích hoạt"
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
@@ -32,6 +35,8 @@ vi:
     invalid_course: "Lỗi: Khóa học không tồn tại!"
     create_success: "Tạo khóa học thành công"
     create_fail: "Tạo khóa học thất bại"
+    update_course_success: "Cập nhật khóa học thành công"
+    update_course_fail: "Cập nhật khóa học thất bại"
     index:
       name: "Khóa học"
     new:
@@ -48,6 +53,10 @@ vi:
       created_at: "Ngày tiến hành"
       edit: "Thay đổi"
       delete: "Hủy bỏ"
+      expected_time: "Thời gian dự kiến"
+    edit:
+      submit: "Cập nhật"
+      name: "Cập nhật thông tin cho"
   shared:
     error_messages:
       intro: "Biểu mẫu có"
@@ -120,6 +129,7 @@ vi:
         description: "Mô tả"
         start_time: "Thời gian bắt đầu"
         finish_time: "Thời gian kết thúc"
+        activated: "Kích hoạt"
     errors:
       models:
         user:

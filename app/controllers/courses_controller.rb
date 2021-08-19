@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
   before_action :logged_in_user
   before_action :supervisor_user, except: %i(index show)
+  before_action :load_course, except: %i(index create new)
+  before_action :correct_supervisor, only: %i(edit update destroy)
 
   def index
     @courses = if current_user.role_admin?
@@ -12,15 +14,9 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find_by id: params[:id]
-    if @course
-      @subjects = @course.subjects.page(params[:page])
-                         .per Settings.subject.paginate
-      @subject = @course.subjects.new
-    else
-      flash[:danger] = t "courses.invalid_course"
-      redirect_to courses_path
-    end
+    @subjects = @course.subjects.page(params[:page])
+                       .per Settings.subject.paginate
+    @subject = @course.subjects.new
   end
 
   def new
@@ -30,7 +26,7 @@ class CoursesController < ApplicationController
   def edit; end
 
   def create
-    @course = Course.new course_params
+    @course = Course.new create_course_params
     if @course.save
       current_user.create_supervision @course.id
       flash[:info] = t ".create_success"
@@ -41,13 +37,37 @@ class CoursesController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    if @course.update update_course_params
+      flash[:success] = t ".update_course_success"
+      redirect_to course_path(@course)
+    else
+      flash.now[:danger] = t ".update_course_fail"
+      render :edit
+    end
+  end
 
   def destroy; end
 
   private
 
-  def course_params
+  def create_course_params
     params.require(:course).permit Course::POST_ATTRS
+  end
+
+  def update_course_params
+    params.require(:course).permit Course::PATCH_ATTRS
+  end
+
+  def load_course
+    @course = Course.find_by id: params[:id]
+    return if @course
+
+    flash[:danger] = t "courses.invalid_course"
+    redirect_to courses_path
+  end
+
+  def correct_supervisor
+    redirect_to courses_path unless @course.supervisors.include? current_user
   end
 end

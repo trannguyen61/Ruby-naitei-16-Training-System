@@ -1,6 +1,9 @@
 en:
   please_login: "Please Login!"
   hello: "Hello world"
+  in_progress: "In progress"
+  finished: "Finished"
+  not_activated: "Not Activated"
   layouts:
     application:
       project_name: "Training System"
@@ -29,8 +32,11 @@ en:
     create:
       login_error: "Login failed. Please try again."
   courses:
+    invalid_course: "Error: Invalid course!"
     create_success: "Course has been created"
     create_fail: "Course has not been created"
+    update_course_success: "Course has been updated"
+    update_course_fail: "Course has been updated"
     index:
       name: "Courses"
     new:
@@ -47,6 +53,10 @@ en:
       created_at: "Start time"
       edit: "Edit"
       delete: "Delete"
+      expected_time: "Expected Time"
+    edit:
+      submit: "Update"
+      name: "Update Info for"
   shared:
     error_messages:
       intro: "The form contains"
@@ -119,6 +129,7 @@ en:
         description: "Description"
         start_time: "Start time"
         finish_time: "Finish time"
+        activated: "Activated"
     errors:
       models:
         user:
