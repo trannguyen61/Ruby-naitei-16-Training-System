@@ -33,6 +33,7 @@ vi:
     create:
       login_error: "Đăng nhập thất bại. Vui lòng thử lại."
   courses:
+    no_permission: "Lỗi: Bạn không thể thay đổi khóa học của giáo viên khác"
     invalid_course: "Lỗi: Khóa học không tồn tại!"
     create_success: "Tạo khóa học thành công"
     create_fail: "Tạo khóa học thất bại"
@@ -44,7 +45,7 @@ vi:
       name: "Tạo khóa học mới"
       submit: "Tạo mới"
     show:
-      subject_list: "Danh sách môn học"
+      subject_list: "Danh sách môn học thuộc khóa "
       id: "Id"
       name: "Tên"
       description: "Thông tin"
@@ -85,6 +86,7 @@ vi:
       general_info: "Thông tin chung"
       trainee_info: "Thông tin học sinh"
   subjects:
+    delete_confirm: "Bạn có chắc muốn xóa chứ?"
     index:
       subject_list: "Danh sách môn học"
       id: "Id"
@@ -99,6 +101,16 @@ vi:
     create:
       success_create: "Thành công: Tạo mới môn học!"
       fail_create: "Lỗi: Thêm mới môn học thất bại!"
+    edit:
+      edit_subject: "Chỉnh sửa môn học"
+      title: "Chỉnh sửa môn thuộc khóa học: "
+      edit_submit: "Cập nhật"
+    update:
+      success_updated: "Thành công: cập nhật môn học!"
+      fail_update: "Lỗi: Cập nhật môn học thất bại!"
+    destroy:
+      success_destroy: "Xóa môn học thành công!"
+      fail_destroy: "Xóa môn học thất bại!"
     subject_form:
       title: "Thêm môn học"
       subject_name: "Tên môn học"
@@ -107,7 +119,9 @@ vi:
       subject_length: "Thời lượng (Ngày)"
       create_submit: "Tạo mới"
     error:
-      must_start_after_course: "Thời gian bắt đầu môn học phải sau theo thời gian bắt đầu khóa học"
+      no_permission: "Lỗi: Bạn không thể thay đổi môn học của giáo viên khác"
+      invalid_subject: "Lỗi: Môn học không tồn tại"
+      must_start_after_course: "Lỗi: Thời gian bắt đầu môn học phải sau theo thời gian bắt đầu khóa học"
   activerecord:
     models:
       user:

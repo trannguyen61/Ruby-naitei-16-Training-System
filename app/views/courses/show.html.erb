@@ -16,7 +16,10 @@
   </div>
 </div>
 <div class="subject-container">
-  <h3><%= t ".subject_list" %></h3>
+  <h3>
+    <%= t ".subject_list" %>
+    <%= @course.name %>
+  </h3>
   <table class="table">
     <thead class="thead-dark">
       <tr>

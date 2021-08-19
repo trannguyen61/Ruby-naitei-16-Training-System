@@ -33,4 +33,11 @@ class ApplicationController < ActionController::Base
   def supervisor_user
     redirect_to courses_path unless current_user.role_supervisor?
   end
+
+  def correct_supervisor pass_object
+    return if pass_object.supervisors.include? current_user
+
+    flash[:danger] = t "subjects.error.no_permission"
+    redirect_to courses_path
+  end
 end

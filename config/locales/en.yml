@@ -33,6 +33,7 @@ en:
     create:
       login_error: "Login failed. Please try again."
   courses:
+    no_permission: "Error: You can not change the course of another teacher"
     invalid_course: "Error: Invalid course!"
     create_success: "Course has been created"
     create_fail: "Course has not been created"
@@ -44,7 +45,7 @@ en:
       name: "Create New Course"
       submit: "Create"
     show:
-      subject_list: "Subject List"
+      subject_list: "Subject List belongs to "
       id: "Id"
       name: "Name"
       description: "Description"
@@ -85,6 +86,7 @@ en:
       general_info: "General information"
       trainee_info: "Trainee information"
   subjects:
+    delete_confirm: "You sure?"
     index:
       subject_list: "Subject List"
       id: "Id"
@@ -99,6 +101,16 @@ en:
     create:
       success_create: "Subject created!"
       fail_create: "Error orcur: Created fail!"
+    edit:
+      edit_subject: "Edit Subject"
+      title: "Edit Subject of Course: "
+      edit_submit: "Update"
+    update:
+      success_updated: "Subject updated!"
+      fail_update: "Subject update fail!"
+    destroy:
+      success_destroy: "Subject deleted!"
+      fail_destroy: "Delete fail!"
     subject_form:
       title: "Create Subject"
       subject_name: "Subject name:"
@@ -107,7 +119,9 @@ en:
       subject_length: "Length (Days)"
       create_submit: "Create"
     error:
-      must_start_after_course: "Subject must start after course's start time"
+      no_permission: "Error: You can not change the subject of another teacher"
+      invalid_subject: "Error: Invalid subject"
+      must_start_after_course: "Error: Subject must start after course's start time"
   activerecord:
     models:
       user:
@@ -142,6 +156,3 @@ en:
           attributes:
             role:
               not_permitted_role: "Not permitted role."
-        subjects:
-          attributes:
-            start_time: "Subject must start after course's start time"

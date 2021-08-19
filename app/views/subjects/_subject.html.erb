@@ -11,10 +11,12 @@
     <% end %>
   </td>
   <td>  
-    <%= link_to "#", class: "text-info", "data-mdb-toggle":"tooltip", title: t("subjects.index.edit") do %>
+    <%= link_to  edit_subject_path(subject.id) , class: "text-info", "data-mdb-toggle":"tooltip",
+        title: t("subjects.index.edit") do %>
       <i class="fas fa-pencil-alt me-3"></i>
     <% end %>
-    <%= link_to "#", class: "text-danger", "data-mdb-toggle":"tooltip", title: t("subjects.index.delete") do %>
+    <%= link_to subject, method: :delete, data: {confirm: t("subjects.delete_confirm")}, class: "text-danger",
+        "data-mdb-toggle":"tooltip", title: t("subjects.index.delete") do %>
       <i class="fa fa-trash-alt me-3"></i>
     <% end %>
   </td>
