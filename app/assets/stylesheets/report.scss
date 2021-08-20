@@ -1,0 +1,11 @@
+@import './colors.scss';
+
+.new-report {
+  min-width: 60%;
+
+  .card-title {
+    background-color: $title-header;
+    padding: 10px;
+    color: white;
+  }
+}

@@ -12,9 +12,11 @@
       <i class="fas fa-calendar-week"></i>
       <%= link_to t(".report_history"), "#" %>
     </li>
-    <li class="nav-item sidebar--item">
-      <i class="fas fa-edit"></i>
-      <%= link_to t(".report"), "#" %>
-    </li>
+    <% if current_user.role_trainee? %>
+      <li class="nav-item sidebar--item">
+        <i class="fas fa-edit"></i>
+        <%= link_to t(".report"), new_report_path %>
+      </li>
+    <% end %>
   </ul>
 </div>

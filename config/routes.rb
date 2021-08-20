@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :subjects
     resources :enrollments, only: %i(create destroy)
     resources :supervisions, only: %i(create destroy)
+    resources :reports
   end
 end

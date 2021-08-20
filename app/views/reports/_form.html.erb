@@ -1,0 +1,24 @@
+<%= form_for @report, html: {class: ["mx-2"]} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.hidden_field :user_id, value: @report.user_id %>
+
+  <%= f.label :course, class: "form-label required" %>
+  <%= f.collection_select :course_id, current_user.courses, :id, :name, {}, {class: "form-select mb-2"} %>
+
+  <%= f.label :date, class: "form-label required" %>
+  <%= f.date_field :date, class: "form-control mb-2" %>
+
+  <%= f.label :today_task, class: "form-label required" %>
+  <%= f.text_area :today_task, class: "form-control mb-2" %>
+
+  <%= f.label :description, class: "form-label" %>
+  <%= f.text_area :description, class: "form-control mb-2" %>
+
+  <%= f.label :tmr_task, class: "form-label required" %>
+  <%= f.text_area :tmr_task, class: "form-control mb-2" %>
+    
+  <div class="d-grid gap-2 col-6 mx-auto mt-3">
+    <%= f.submit t(".new_report"), class: "btn btn-primary btn-greeny" %>
+  </div>
+<% end %>
