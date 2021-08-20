@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   before_action :logged_in_user
   before_action :supervisor_user, except: %i(index show)
   before_action :load_course, except: %i(index create new)
-  before_action :correct_supervisor, only: %i(edit update destroy)
+  before_action ->{correct_supervisor @course}, only: %i(edit update destroy)
 
   def index
     @courses = if current_user.role_admin?
@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @subjects = @course.subjects.page(params[:page])
+    @subjects = @course.subjects.newest_subject.page(params[:page])
                        .per Settings.subject.paginate
     @subject = @course.subjects.new
   end
@@ -65,9 +65,5 @@ class CoursesController < ApplicationController
 
     flash[:danger] = t "courses.invalid_course"
     redirect_to courses_path
-  end
-
-  def correct_supervisor
-    redirect_to courses_path unless @course.supervisors.include? current_user
   end
 end

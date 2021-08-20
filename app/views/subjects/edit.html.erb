@@ -1,0 +1,31 @@
+<% provide :title, t(".edit_subject") %>
+
+<div class="center-container supervisor-edit-subject">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= t ".title" %>
+        <%= @subject.course.name %>
+      </h4>
+      <%= form_for @subject, html: {class: ["subject-form"]} do |f| %>
+        <div class="row">
+          <%= render "shared/error_messages", object: f.object %>
+          <%= f.label :name, t("subjects.subject_form.subject_name"), class: "form-label required" %>
+          <%= f.text_field :name, class: "form-control mb-2" %>
+          
+          <%= f.label :description, t("subjects.subject_form.subject_description"), class: "form-label" %>
+          <%= f.text_area :description, class: "form-control mb-2" %>
+          
+          <%= f.label :start_time, t("subjects.subject_form.subject_start_time"), class: "form-label required" %>
+          <%= f.date_field :start_time, class: "form-control mb-2" %>
+          
+          <%= f.label :length, t("subjects.subject_form.subject_length"), class: "form-label required" %>
+          <%= f.number_field :length, class: "form-control mb-2", only_integer: true %>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto mt-3">
+          <%= f.submit t(".edit_submit"), class: "btn btn-primary btn-greeny" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

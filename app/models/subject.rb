@@ -1,9 +1,11 @@
 class Subject < ApplicationRecord
   POST_ATTRS = %i(course_id name description start_time length).freeze
+  PATCH_ATTRS = %i(name description start_time length).freeze
 
   belongs_to :course
   has_many :tasks, dependent: :destroy
   has_many :statuses, as: :finishable, dependent: :destroy
+  has_many :supervisors, through: :course
 
   validates :name, presence: true,
             length: {maximum: Settings.subject.name.max_length}
