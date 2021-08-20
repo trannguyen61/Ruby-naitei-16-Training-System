@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :logged_in_user
   before_action :supervisor_user, except: %i(index show)
-  before_action :load_course, except: %i(index create new)
+  before_action ->{load_course params[:id]}, except: %i(index create new)
   before_action ->{correct_supervisor @course}, only: %i(edit update destroy)
 
   def index
@@ -16,7 +16,11 @@ class CoursesController < ApplicationController
   def show
     @subjects = @course.subjects.newest_subject.page(params[:page])
                        .per Settings.subject.paginate
+    @trainees = @course.trainees
+    @supervisors = @course.supervisors
     @subject = @course.subjects.new
+    @enrollment = @course.enrollments.new
+    @supervision = @course.supervisions.new
   end
 
   def new
@@ -57,13 +61,5 @@ class CoursesController < ApplicationController
 
   def update_course_params
     params.require(:course).permit Course::PATCH_ATTRS
-  end
-
-  def load_course
-    @course = Course.find_by id: params[:id]
-    return if @course
-
-    flash[:danger] = t "courses.invalid_course"
-    redirect_to courses_path
   end
 end

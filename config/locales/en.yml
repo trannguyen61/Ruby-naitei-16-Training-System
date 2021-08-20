@@ -5,6 +5,11 @@ en:
   finished: "Finished"
   not_activated: "Not Activated"
   no_permission: "You don't have the permission to access this endpoint."
+  not_found: "User not found"
+  trainee_only: "Not Trainee"
+  supervisor_only: "Not Supervisor"
+  add_member_success: "Add Member Successfully"
+  member_added: "Member existed"
   layouts:
     application:
       project_name: "Training System"
@@ -56,6 +61,13 @@ en:
       edit: "Edit"
       delete: "Delete"
       expected_time: "Expected Time"
+      subjects: "Subjects"
+      trainees: "Trainees"
+      supervisors: "Supervisors"
+      trainees_list: "Trainees list"
+      supervisors_list: "Supervisor list"
+      add_trainee: "Add Trainee"
+      add_supervisor: "Add Supervisor"
     edit:
       submit: "Update"
       name: "Update Info for"

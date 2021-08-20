@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :users, except: :new
     resources :courses
     resources :subjects
+    resources :enrollments, only: %i(create destroy)
+    resources :supervisions, only: %i(create destroy)
   end
 end
