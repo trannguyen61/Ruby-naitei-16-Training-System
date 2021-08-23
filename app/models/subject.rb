@@ -7,6 +7,8 @@ class Subject < ApplicationRecord
   has_many :statuses, as: :finishable, dependent: :destroy
   has_many :supervisors, through: :course
 
+  after_create :create_statuses
+
   validates :name, presence: true,
             length: {maximum: Settings.subject.name.max_length}
   validates :length,
@@ -25,5 +27,17 @@ class Subject < ApplicationRecord
     errors.add(:start_time,
                :after_course_start_time,
                message: I18n.t("subjects.error.must_start_after_course"))
+  end
+
+  def finish_time
+    start_time + length.days
+  end
+
+  private
+  def create_statuses
+    course.enrollments.each do |enrollment|
+      status = Status.new finishable: self
+      enrollment.statuses << status
+    end
   end
 end

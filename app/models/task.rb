@@ -6,8 +6,18 @@ class Task < ApplicationRecord
   has_many :statuses, as: :finishable, dependent: :destroy
   has_many :supervisors, through: :subject
 
+  after_create :create_statuses
+
   validates :subject_id, presence: true
   validates :name, presence: true,
             length: {maximum: Settings.subject.name.max_length}
   scope :oldest_task, ->{order(created_at: :asc)}
+
+  private
+  def create_statuses
+    subject.course.enrollments.each do |enrollment|
+      status = Status.new finishable: self
+      enrollment.statuses << status
+    end
+  end
 end

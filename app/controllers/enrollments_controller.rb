@@ -1,6 +1,10 @@
 class EnrollmentsController < CourseMembersController
   before_action :load_enrollment, except: :create
 
+  def show
+    @subject_statuses = @enrollment.statuses.subjects_ordered
+  end
+
   def create
     enrollment = @course.enrollments.build user_id: @user.id
     if enrollment.save

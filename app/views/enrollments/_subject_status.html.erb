@@ -1,0 +1,14 @@
+<div class="row subject_status mt-3 mb-3">
+  <div class="col-2 pl-1 pr-1">
+    <%= image_tag Settings.pic_url, alt: subject_status.subject_name, class: "card-img-top info-img" %>
+  </div>
+  <div class="col-9 d-flex flex-column bd-highlight mb-3">
+    <h2 class="p-2 bd-highlight">
+      <span class="badge bg-info text-dark"><%= subject_status.status %></span>
+      <%= link_to subject_status.subject_name, subject_status %>
+    </h2>
+    <div class="p-2 bd-highlight">
+      <%= "#{t "expected_time"}: #{subject_status.start_time.strftime Settings.date_format}-#{subject_status.finish_time.strftime Settings.date_format}" %>
+    </div>
+  </div>
+</div>
