@@ -6,10 +6,15 @@ vi:
   not_activated: "Chưa kích hoạt"
   no_permission: "Bạn không có quyền truy cập vào trang này."
   not_found: "Người dùng không tồn tại"
+  data_not_found: "Dữ liệu không tồn tại"
   trainee_only: "Không phải Học viên"
   supervisor_only: "Không phải Giảng viên"
   add_member_success: "Thêm thành viên thành công"
+  delete_member_success: "Xóa thành viên thành công"
+  delete_member_fail: "Xóa thành viên thất bại"
   member_added: "Thành viên đã tồn tại"
+  delete: "Hủy bỏ"
+  delete_confirm: "Bạn có chắc muốn xóa chứ?"
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
@@ -192,3 +197,11 @@ vi:
               required: "không thể để trắng."
             course:
               required: "không thể để trắng."
+        enrollment:
+          attributes:
+            user:
+              trainee_only: "Không phải học viên"
+        supervision:
+          attributes:
+            user:
+              supervisor_only: "Không phải giảng viên"

@@ -2,6 +2,8 @@ class Supervision < ApplicationRecord
   belongs_to :course
   belongs_to :user
 
+  delegate :name, :email, prefix: true, to: :user
+
   validate :supervisor_only
 
   def supervisor_only

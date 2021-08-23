@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_08_19_063739) do
 
-  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.boolean "activated", default: false
     t.datetime "start_time"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "enrollments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "enrollments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "course_id"
     t.datetime "enroll_time"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.index ["user_id"], name: "index_enrollments_on_user_id"
   end
 
-  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "date"
     t.text "description"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
-  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.string "finishable_type"
     t.bigint "finishable_id"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.index ["user_id"], name: "index_statuses_on_user_id"
   end
 
-  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "course_id"
     t.string "name"
     t.datetime "start_time"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.index ["course_id"], name: "index_subjects_on_course_id"
   end
 
-  create_table "supervisions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "supervisions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "course_id"
     t.datetime "created_at", precision: 6, null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.index ["user_id"], name: "index_supervisions_on_user_id"
   end
 
-  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "subject_id"
     t.string "name"
     t.text "description"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
   end
 
-  create_table "trainee_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "trainee_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "garaduate_year"
     t.string "university"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
     t.index ["user_id"], name: "index_trainee_infos_on_user_id", unique: true
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "date_of_birth"
