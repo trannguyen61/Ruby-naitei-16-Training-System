@@ -97,6 +97,15 @@ en:
       edit_profile: "Edit profile"
       general_info: "General information"
       trainee_info: "Trainee information"
+  reports:
+    new:
+      new_report: "Create new report"
+      daily_report: "Daily report"
+    form:
+      new_report: "Create new report"
+    create:
+      success_reported: "Successfully reported."
+      fail_reported: "Report failed."
   subjects:
     delete_confirm: "You sure?"
     index:
@@ -138,6 +147,10 @@ en:
     models:
       user:
         one: "User"
+      trainee_info:
+        one: "Trainee Info"
+    attributes:
+      user:
         name: "Name"
         email: "Email"
         password: "Password"
@@ -151,7 +164,6 @@ en:
         address: "Address"
         gender: "Gender"
       trainee_info:
-        one: "Trainee Info"
         university: "University"
         garaduate_year: "Graduate year"
         start_training_time: "Start training time"
@@ -162,9 +174,24 @@ en:
         start_time: "Start time"
         finish_time: "Finish time"
         activated: "Activated"
+      report:
+        course: "Course"
+        date: "Report for"
+        today_task: "Today tasks"
+        tmr_task: "Tomorrow tasks"
+        description: "Problems"
     errors:
       models:
         user:
           attributes:
             role:
               not_permitted_role: "Not permitted role."
+        subjects:
+          attributes:
+            start_time: "Subject must start after course's start time"
+        report:
+          attributes:
+            user:
+              required: "is required."
+            course:
+              required: "is required."

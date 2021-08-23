@@ -97,6 +97,15 @@ vi:
       edit_profile: "Sửa thông tin"
       general_info: "Thông tin chung"
       trainee_info: "Thông tin học sinh"
+  reports:
+    new:
+      new_report: "Tạo báo cáo"
+      daily_report: "Báo cáo hàng ngày"
+    form:
+      new_report: "Tạo báo cáo"
+    create:
+      success_reported: "Báo cáo thành công."
+      fail_reported: "Báo cáo thất bại."
   subjects:
     delete_confirm: "Bạn có chắc muốn xóa chứ?"
     index:
@@ -138,6 +147,10 @@ vi:
     models:
       user:
         one: "Người dùng"
+      trainee_info:
+        one: "Thông tin học sinh"
+    attributes:
+      user:
         name: "Tên"
         email: "Địa chỉ email"
         password: "Password"
@@ -151,7 +164,6 @@ vi:
         address: "Địa chỉ"
         gender: "Giới tính"
       trainee_info:
-        one: "Thông tin học sinh"
         university: "Trường học"
         garaduate_year: "Năm tốt nghiệp"
         start_training_time: "Thời gian bắt đầu training"
@@ -162,9 +174,21 @@ vi:
         start_time: "Thời gian bắt đầu"
         finish_time: "Thời gian kết thúc"
         activated: "Kích hoạt"
+      report:
+        course: "Khóa học"
+        date: "Ngày tạo"
+        today_task: "Nhiệm vụ hôm nay"
+        tmr_task: "Nhiệm vụ ngày mai"
+        description: "Khó khăn"
     errors:
       models:
         user:
           attributes:
             role:
               not_permitted_role: "Không thể tạo vai trò này."
+        report:
+          attributes:
+            user:
+              required: "không thể để trắng."
+            course:
+              required: "không thể để trắng."

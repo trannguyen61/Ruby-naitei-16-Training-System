@@ -22,6 +22,7 @@ class User < ApplicationRecord
             source: :finishable, source_type: Subject.name
   has_many :tasks, through: :statuses,
             source: :finishable, source_type: Task.name
+  has_many :reports, dependent: :destroy
 
   accepts_nested_attributes_for :trainee_info, update_only: true
 
