@@ -1,14 +1,18 @@
-<h3 class="title"><%= t ".title" %></h3>
-<%= form_for @subject do |f| %>
-  <%= render partial: "shared/error_messages", locals: {object: @subject} %>
-  <%= f.hidden_field :course_id, value: @course.id %>
-  <%= f.label :name, t(".subject_name"), class: "required" %>
-  <%= f.text_field :name, class: "form-control" %>
-  <%= f.label :description, t(".subject_description") %>
-  <%= f.text_area :description, class: "form-control" %>
-  <%= f.label :start_time, t(".subject_start_time"), class: "required" %>
-  <%= f.date_field :start_time, class: "form-control" %>
-  <%= f.label :length, t(".subject_length"), class: "required" %>
-  <%= f.number_field :length, class: "form-control", only_integer: true %>
-  <%= f.submit t(".create_submit"), class: "btn btn-primary" %>
-<% end %>
+<div class="card subject-form">
+  <div class="card-body">
+    <h4 class="title card-title"><%= t ".title" %></h4>
+    <%= form_for @subject do |f| %>
+      <%= render partial: "shared/error_messages", locals: {object: @subject} %>
+      <%= f.hidden_field :course_id, value: @course.id %>
+      <%= f.label :name, t(".subject_name"), class: "required" %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :description, t(".subject_description") %>
+      <%= f.text_area :description, class: "form-control" %>
+      <%= f.label :start_time, t(".subject_start_time"), class: "required" %>
+      <%= f.date_field :start_time, class: "form-control" %>
+      <%= f.label :length, t(".subject_length"), class: "required" %>
+      <%= f.number_field :length, class: "form-control", only_integer: true %>
+      <%= f.submit t(".create_submit"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

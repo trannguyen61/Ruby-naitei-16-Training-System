@@ -1,0 +1,16 @@
+<tr class="tasks table-light">
+  <td><p><%= task.name %></p></td>
+  <td><p><%= task.description %></p></td>
+  <td>
+    <% if current_user.role_supervisor? %>  
+      <%= link_to  edit_task_path(task.id) , class: "text-info", "data-mdb-toggle":"tooltip",
+          title: t("subjects.index.edit") do %>
+        <i class="fas fa-pencil-alt me-3"></i>
+      <% end %>
+      <%= link_to task, method: :delete, data: {confirm: t("subjects.delete_confirm")}, class: "text-danger",
+          "data-mdb-toggle":"tooltip", title: t("subjects.index.delete") do %>
+        <i class="fa fa-trash-alt me-3"></i>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

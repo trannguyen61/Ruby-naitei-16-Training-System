@@ -1,0 +1,21 @@
+<div class="task-container">
+  <h3>
+    <%= link_to @subject.course.name, course_path(@subject.course.id), class: "btn btn-info" %>
+    <%= t ".task_list" %>(<%= @tasks.count %>)
+  </h3>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr class="table-primary">
+        <th scope="col"><%= t ".name" %></th>
+        <th scope="col"><%= t ".description" %></th>
+        <th scope="col"><%= t ".action" %></th>
+    </thead>
+    <tbody>
+      <%= render @tasks %>
+    </tbody>
+  </table>
+  <%= paginate @tasks, theme: "bootstrap-5" %>
+  <% if current_user.role_supervisor? %>
+    <%= render "tasks/task_form" %>
+  <% end %>
+</div>

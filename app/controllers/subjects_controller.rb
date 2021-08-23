@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :logged_in_user
-  before_action :supervisor_user, except: %i(index)
+  before_action :supervisor_user, except: %i(index show)
   before_action :load_subject, except: %i(index create new)
   before_action ->{correct_supervisor @subject}, only: %i(edit update destroy)
 
@@ -10,6 +10,12 @@ class SubjectsController < ApplicationController
   end
 
   def new; end
+
+  def show
+    @tasks = @subject.tasks.oldest_task.page(params[:page])
+                     .per Settings.subject.paginate
+    @task = Task.new
+  end
 
   def create
     @subject = Subject.new create_subject_params

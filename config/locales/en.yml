@@ -55,7 +55,7 @@ en:
       name: "Create New Course"
       submit: "Create"
     show:
-      subject_list: "Subject List belongs to "
+      subject_list: "Subject List"
       id: "Id"
       name: "Name"
       description: "Description"
@@ -124,6 +124,11 @@ en:
       created_at: "Start time"
       edit: "Edit"
       delete: "Delete"
+    show:
+      task_list: "Yours task"
+      name: "Name"
+      description: "Description"
+      action: "Action"
     create:
       success_create: "Subject created!"
       fail_create: "Error orcur: Created fail!"
@@ -148,6 +153,26 @@ en:
       no_permission: "Error: You can not change the subject of another teacher"
       invalid_subject: "Error: Invalid subject"
       must_start_after_course: "Error: Subject must start after course's start time"
+  tasks:
+    success_create: "Task created!"
+    task_form:
+      title: "Create task"
+      task_name: "Name"
+      task_description: "Description"
+      create_submit: "Create"
+    edit:
+      edit_task: "Edit Task"
+      title: "Edit task here"
+      subject: "Subject: "
+      edit_submit: "Change"
+    update:
+      success_update: "Task updated!"
+      fail_update: "Error: Update fail!"
+    destroy:
+      success_destroy: "Task deleted!"
+      fail_destroy: "Error: Delete fail!"
+    error:
+      invalid_task: "Invalid task"
   activerecord:
     models:
       user:

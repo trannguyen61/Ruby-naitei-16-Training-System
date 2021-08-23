@@ -55,7 +55,7 @@ vi:
       name: "Tạo khóa học mới"
       submit: "Tạo mới"
     show:
-      subject_list: "Danh sách môn học thuộc khóa "
+      subject_list: "Danh sách môn học"
       id: "Id"
       name: "Tên"
       description: "Thông tin"
@@ -124,6 +124,11 @@ vi:
       created_at: "Ngày tiến hành"
       edit: "Thay đổi"
       delete: "Hủy bỏ"
+    show:
+      task_list: "Nhiệm vụ của bạn"
+      name: "Tên"
+      description: "Thông tin"
+      action: "Thao tác"
     create:
       success_create: "Thành công: Tạo mới môn học!"
       fail_create: "Lỗi: Thêm mới môn học thất bại!"
@@ -148,6 +153,25 @@ vi:
       no_permission: "Lỗi: Bạn không thể thay đổi môn học của giáo viên khác"
       invalid_subject: "Lỗi: Môn học không tồn tại"
       must_start_after_course: "Lỗi: Thời gian bắt đầu môn học phải sau theo thời gian bắt đầu khóa học"
+  tasks:
+    task_form:
+      title: "Tạo nhiệm vụ"
+      task_name: "Tên"
+      task_description: "Mô tả"
+      create_submit: "Tạo mới"
+    edit:
+      edit_task: "Chỉnh sửa nhiệm vụ"
+      title: "Chỉnh sửa nhiệm vụ tại đây"
+      subject: "Thuộc môn học: "
+      edit_submit: "Thay đổi"
+    update:
+      success_update: "Nhiệm vụ đã được cập nhật!"
+      fail_update: "Lỗi: Cập nhật nhiệm vụ thất bại!"
+    destroy:
+      success_destroy: "Xóa nhiệm vụ thành công.!"
+      fail_destroy: "Lỗi: Xóa nhiệm vụ thất bại!"
+    error:
+      invalid_task: "Nhiệm vụ không tồn tại"
   activerecord:
     models:
       user:

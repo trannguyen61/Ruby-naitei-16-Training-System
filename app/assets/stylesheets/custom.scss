@@ -101,7 +101,8 @@ a {
   font-size: 22px;
 }
 
-.subject-container {
+.subject-container,
+.task-container {
   max-width: 80%;
   margin: auto;
   margin: auto;
@@ -113,11 +114,11 @@ a {
   }
 }
 
-.subject-form {
-  max-width: 50%;
+.subject-form,
+.task-form {
+  max-width: 65% !important;
   margin: auto;
   margin-top: 50px;
-  align-items: center;
 
   .title {
     text-align: center;
@@ -125,6 +126,12 @@ a {
 
   input {
     margin-bottom: 20px;
+  }
+}
+
+.card-body {
+  .btn {
+    margin-top: 15px;
   }
 }
 
