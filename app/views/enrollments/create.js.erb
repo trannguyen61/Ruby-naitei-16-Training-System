@@ -1,1 +1,1 @@
-$("#trainees_tb_body").html('<%= j render(partial: 'courses/user_item', collection: @course.reload.trainees) %>');
+$("#trainees_tb_body").html('<%= j render(partial: 'courses/user_item', collection: @course.reload.enrollments) %>');

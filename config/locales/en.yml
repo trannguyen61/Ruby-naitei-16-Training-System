@@ -6,10 +6,15 @@ en:
   not_activated: "Not Activated"
   no_permission: "You don't have the permission to access this endpoint."
   not_found: "User not found"
+  data_not_found: "Data not found"
   trainee_only: "Not Trainee"
   supervisor_only: "Not Supervisor"
   add_member_success: "Add Member Successfully"
+  delete_member_success: "Delete Member Successfully"
+  delete_member_fail: "Delete Member Unsuccessfully"
   member_added: "Member existed"
+  delete: "Delete"
+  delete_confirm: "You sure?"
   layouts:
     application:
       project_name: "Training System"
@@ -195,3 +200,11 @@ en:
               required: "is required."
             course:
               required: "is required."
+        enrollment:
+          attributes:
+            user:
+              trainee_only: "Not Trainee"
+        supervision:
+          attributes:
+            user:
+              supervisor_only: "Not Supervisor"

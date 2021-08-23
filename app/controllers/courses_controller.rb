@@ -16,8 +16,8 @@ class CoursesController < ApplicationController
   def show
     @subjects = @course.subjects.newest_subject.page(params[:page])
                        .per Settings.subject.paginate
-    @trainees = @course.trainees
-    @supervisors = @course.supervisors
+    @enrollments = @course.enrollments.includes(:user)
+    @supervisions = @course.supervisions.includes(:user)
     @subject = @course.subjects.new
     @enrollment = @course.enrollments.new
     @supervision = @course.supervisions.new
