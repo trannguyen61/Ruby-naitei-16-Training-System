@@ -1,21 +1,21 @@
 <div class="subject-container">
-  <h3><%= t ".subject_list" %></h3>
+  <h3><%= t "courses.show.subject_list" %></h3>
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col"><%= t ".name" %></th>
-        <th scope="col"><%= t ".description" %></th>
-        <th scope="col"><%= t ".length" %></th>
-        <th scope="col"><%= t ".time" %></th>
-        <th scope="col"><%= t ".action" %></th>
+        <th scope="col"><%= t "courses.show.name" %></th>
+        <th scope="col"><%= t "courses.show.description" %></th>
+        <th scope="col"><%= t "courses.show.length" %></th>
+        <th scope="col"><%= t "courses.show.time" %></th>
+        <th scope="col"><%= t "courses.show.action" %></th>
       </tr>
     </thead>
     <tbody>
-      <%= render subjects %>
+      <%= render @subjects %>
     </tbody>
   </table>
-  <%= paginate subjects, theme: "bootstrap-5" %>
-  <section class="subject-form center_div">
+  <%= paginate @subjects, theme: "bootstrap-5" %>
+  <section>
     <%= render "subjects/subject_form" %>
   </section>
 </div>

@@ -1,0 +1,14 @@
+<div class="card task-form">
+  <div class="card-body">
+    <h4 class="title card-title"><%= t ".title" %></h4>
+    <%= form_for @task do |f| %>
+      <%= render partial: "shared/error_messages", locals: {object: @task} %>
+      <%= f.hidden_field :subject_id, value: @subject.id %>
+      <%= f.label :name, t(".task_name"), class: "required" %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :description, t(".task_description") %>
+      <%= f.text_area :description, class: "form-control" %>
+      <%= f.submit t(".create_submit"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

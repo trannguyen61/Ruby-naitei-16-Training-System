@@ -1,0 +1,18 @@
+<% provide :title, t(".edit_task") %>
+
+<div class="card task-form">
+  <div class="card-body">
+    <h4 class="title card-title"><%= t ".title" %></h4>
+    <h5><%= t ".subject" %>  <%= @task.subject.name %></h5>
+    <%= form_for @task do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.label :name, t("tasks.task_form.task_name"), class: "form-label required" %>
+      <%= f.text_field :name, class: "form-control mb-2" %>        
+      <%= f.label :description, t("tasks.task_form.task_description"), class: "form-label" %>
+      <%= f.text_area :description, class: "form-control mb-2" %>
+      <div class="d-grid gap-2 col-6 mx-auto mt-3">
+        <%= f.submit t(".edit_submit"), class: "btn btn-primary btn-greeny" %>
+      </div>
+    <% end %>
+  </div>
+</div>
