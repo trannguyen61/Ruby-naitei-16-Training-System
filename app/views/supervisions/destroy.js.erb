@@ -1,1 +1,1 @@
-$("#supervisors_tb_body").html('<%= j render(partial: 'courses/user_item', collection: @course.reload.supervisions) %>');
+$("#supervisors_tb_body").html('<%= j render(@course.reload.supervisions.includes(:user)) %>');
