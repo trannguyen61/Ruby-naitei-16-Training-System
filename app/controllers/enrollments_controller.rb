@@ -2,9 +2,9 @@ class EnrollmentsController < CourseMembersController
   def create
     enrollment = @course.enrollments.build user_id: @user.id
     if enrollment.save
-      success_respond t("add_member_success")
+      success_respond t("add_member_success"), @course
     else
-      fail_respond enrollment.errors.full_messages.to_sentence
+      fail_respond enrollment.errors.full_messages.to_sentence, @course
     end
   end
 
@@ -13,9 +13,9 @@ class EnrollmentsController < CourseMembersController
     fail_respond t("data_not_found") unless enrollment
     @course = enrollment.course
     if enrollment.destroy
-      success_respond t("delete_member_success")
+      success_respond t("delete_member_success"), @course
     else
-      fail_respond t("delte_member_fail")
+      fail_respond t("delte_member_fail"), @course
     end
   end
 end

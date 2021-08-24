@@ -19,6 +19,6 @@
   <%= f.text_area :tmr_task, class: "form-control mb-2" %>
     
   <div class="d-grid gap-2 col-6 mx-auto mt-3">
-    <%= f.submit t(".new_report"), class: "btn btn-primary btn-greeny" %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary btn-greeny" %>
   </div>
 <% end %>

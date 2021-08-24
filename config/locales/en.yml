@@ -15,6 +15,7 @@ en:
   member_added: "Member existed"
   delete: "Delete"
   delete_confirm: "You sure?"
+  report_not_found: "Report not found"
   layouts:
     application:
       project_name: "Training System"
@@ -111,6 +112,27 @@ en:
     create:
       success_reported: "Successfully reported."
       fail_reported: "Report failed."
+    index:
+      reports: "Reports"
+      filter: "Filter"
+    user_report:
+      course: "Course"
+      today_task: "Today tasks"
+      description: "Problems"
+      tmr_task: "Tomorrow tasks"
+    supervisor_report:
+      course: "Course"
+      today_task: "Today tasks"
+      description: "Problems"
+      tmr_task: "Tomorrow tasks"
+      user: "User"
+    edit:
+      edit_report: "Edit report"
+    update:
+      success_updated: "Updated successfully."
+      fail_updated: "Updated failed."
+    destroy:
+      success_destroy: "Destroyed successfully"
   subjects:
     delete_confirm: "You sure?"
     index:

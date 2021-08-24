@@ -2,9 +2,9 @@ class SupervisionsController < CourseMembersController
   def create
     supervision = @course.supervisions.build user_id: @user.id
     if supervision.save
-      success_respond t("add_member_success")
+      success_respond t("add_member_success"), @course
     else
-      fail_respond supervision.errors.full_messages.to_sentence
+      fail_respond supervision.errors.full_messages.to_sentence, @course
     end
   end
 
@@ -13,9 +13,9 @@ class SupervisionsController < CourseMembersController
     fail_respond t("data_not_found") unless supervision
     @course = supervision.course
     if supervision.destroy
-      success_respond t("delete_member_success")
+      success_respond t("delete_member_success"), @course
     else
-      fail_respond t("delte_member_fail")
+      fail_respond t("delte_member_fail"), @course
     end
   end
 end

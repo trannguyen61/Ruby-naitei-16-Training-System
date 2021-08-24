@@ -49,21 +49,21 @@ class ApplicationController < ActionController::Base
     redirect_to courses_path
   end
 
-  def success_respond message
+  def success_respond message, path
     respond_to do |format|
       format.html do
         flash[:sucess] = message
-        redirect_to @course
+        redirect_to path
       end
       format.js
     end
   end
 
-  def fail_respond message
+  def fail_respond message, path
     respond_to do |format|
       format.html do
         flash[:danger] = message
-        redirect_to @course
+        redirect_to path
       end
       format.js{render js: "alert('#{message}')"}
     end

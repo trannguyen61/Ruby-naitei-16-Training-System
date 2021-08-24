@@ -1,0 +1,24 @@
+<%= provide :title, t(".reports") %>
+<h1 class="mb-4 mt-2">
+  <%= t ".reports" %>
+</h1>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <%= form_tag reports_path, method: :get, class: "d-inline" do %>
+      <%= date_field :filter_date, :filter_date %>
+      <%= submit_tag t(".filter"), class: "btn btn-primary btn-greeny mt-0" %>
+    <% end %>
+    <button type="button" class="btn btn-info mt-0">
+      <%= link_to reports_path, class: "text-white" do %>
+        <i class="fa fa-redo"></i>
+      <% end %>
+    </button>
+  </div>
+</div>
+
+<div class="reports">
+  <%= render partial: get_report_view, collection: @reports, as: :report %>
+</div>
+
+<%= paginate @paginate_reports, theme: "bootstrap-5" %>
