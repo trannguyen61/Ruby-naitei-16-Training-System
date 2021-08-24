@@ -15,6 +15,7 @@ vi:
   member_added: "Thành viên đã tồn tại"
   delete: "Hủy bỏ"
   delete_confirm: "Bạn có chắc muốn xóa chứ?"
+  report_not_found: "Báo cáo không tồn tại"
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
@@ -111,6 +112,27 @@ vi:
     create:
       success_reported: "Báo cáo thành công."
       fail_reported: "Báo cáo thất bại."
+    index:
+      reports: "Báo cáo hàng ngày"
+      filter: "Lọc"
+    user_report:
+      course: "Khóa học"
+      today_task: "Nhiệm vụ hôm nay"
+      description: "Khó khăn"
+      tmr_task: "Nhiệm vụ ngày mai"
+    supervisor_report:
+      course: "Khóa học"
+      today_task: "Nhiệm vụ hôm nay"
+      description: "Khó khăn"
+      tmr_task: "Nhiệm vụ ngày mai"
+      user: "Học sinh"
+    edit:
+      edit_report: "Sửa báo cáo"
+    update:
+      success_updated: "Cập nhật thành công."
+      fail_updated: "Cập nhật thất bại."
+    destroy:
+      success_destroy: "Xóa thành công."
   subjects:
     delete_confirm: "Bạn có chắc muốn xóa chứ?"
     index:

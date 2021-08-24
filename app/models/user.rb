@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :tasks, through: :statuses,
             source: :finishable, source_type: Task.name
   has_many :reports, dependent: :destroy
+  has_many :supervised_courses, through: :supervisions,
+            source: :course
 
   accepts_nested_attributes_for :trainee_info, update_only: true
 
@@ -84,6 +86,10 @@ class User < ApplicationRecord
   def create_supervision course_id
     supervision = Supervision.new course_id: course_id
     supervisions << supervision
+  end
+
+  def reports_by_own_courses
+    Report.by_course_id(supervised_course_ids).order_desc_date
   end
 
   private

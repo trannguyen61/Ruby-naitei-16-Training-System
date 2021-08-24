@@ -22,3 +22,5 @@ lang:
   vi: "vi"
   all: ["en", "vi"]
 page_size: 8
+trainee_report: "trainee_report"
+supervisor_report: "supervisor_report"

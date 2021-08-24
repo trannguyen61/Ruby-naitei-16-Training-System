@@ -1,0 +1,40 @@
+<div class="card report-card mb-4">
+  <div class="card-body">
+    <div class="d-flex align-items-center mb-2">
+      <i class="fas fa-calendar-week"></i>
+      <h5 class="mb-0 ms-2">
+        <%= report[1][0].date.strftime Settings.date_format %>
+      </h5>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><%= t ".course" %></th>
+          <th scope="col"><%= t ".today_task" %></th>
+          <th scope="col"><%= t ".description" %></th>
+          <th scope="col"><%= t ".tmr_task" %></th>
+          <th scope="col"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% report[1].each do |rp| %>
+          <tr>
+            <th scope="row"><%= rp.course_name %></th>
+            <td><%= rp.today_task %></td>
+            <td><%= rp.description %></td>
+            <td><%= rp.tmr_task %></td>
+            <td>
+              <%= link_to edit_report_path(rp), class: "text-success" do %>
+                <i class="fa fa-edit me-3"></i>
+              <% end %>
+              <%= link_to rp, method: :delete,
+                  data: {confirm: t("subjects.delete_confirm")}, class: "text-danger" do %>
+                <i class="fa fa-trash-alt me-3"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
