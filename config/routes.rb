@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     resources :courses
     resources :subjects
     resources :tasks, except: %i(index show)
-    resources :enrollments, only: %i(create destroy)
+    resources :enrollments, only: %i(show create destroy)
     resources :supervisions, only: %i(create destroy)
     resources :reports
+    resources :statuses, execpt: :index
   end
 end

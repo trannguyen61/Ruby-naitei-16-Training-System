@@ -16,7 +16,6 @@ class User < ApplicationRecord
   has_one :trainee_info, dependent: :destroy
   has_many :enrollments, dependent: :destroy
   has_many :supervisions, dependent: :destroy
-  has_many :statuses, dependent: :destroy
   has_many :courses, through: :enrollments
   has_many :subjects, through: :statuses,
             source: :finishable, source_type: Subject.name

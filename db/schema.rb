@@ -48,15 +48,15 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
   end
 
   create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "enrollment_id"
     t.string "finishable_type"
     t.bigint "finishable_id"
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["finishable_id", "finishable_type", "user_id"], name: "index_statuses_on_finishable_id_and_finishable_type_and_user_id", unique: true
+    t.index ["enrollment_id"], name: "index_statuses_on_enrollment_id"
+    t.index ["finishable_id", "finishable_type", "enrollment_id"], name: "index_finishable_and_enrollment_id", unique: true
     t.index ["finishable_type", "finishable_id"], name: "index_statuses_on_finishable_type_and_finishable_id"
-    t.index ["user_id"], name: "index_statuses_on_user_id"
   end
 
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_063739) do
   add_foreign_key "enrollments", "users"
   add_foreign_key "reports", "courses"
   add_foreign_key "reports", "users"
-  add_foreign_key "statuses", "users"
+  add_foreign_key "statuses", "enrollments"
   add_foreign_key "subjects", "courses"
   add_foreign_key "supervisions", "courses"
   add_foreign_key "supervisions", "users"

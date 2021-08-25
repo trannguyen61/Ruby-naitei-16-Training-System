@@ -1,0 +1,5 @@
+<%= render "shared/course_info" %>
+<%= @status.name %>
+<div class="subject-container">
+  <%= render partial: "task_status", collection: @task_statuses%>
+</div>
