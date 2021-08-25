@@ -5,12 +5,8 @@ class CoursesController < ApplicationController
   before_action ->{correct_supervisor @course}, only: %i(edit update destroy)
 
   def index
-    @courses = if current_user.role_admin?
-                 Course.page(params[:page]).per Settings.page_size
-               else
-                 Course.send("by_#{current_user.role}_id", current_user.id)
-                       .page(params[:page]).per Settings.page_size
-               end
+    @courses = send("load_#{current_user.role}_courses").page(params[:page])
+                                                        .per Settings.page_size
   end
 
   def show
@@ -61,5 +57,17 @@ class CoursesController < ApplicationController
 
   def update_course_params
     params.require(:course).permit Course::PATCH_ATTRS
+  end
+
+  def load_trainee_courses
+    current_user.enrollments
+  end
+
+  def load_supervisor_courses
+    Course.by_supervisor_id current_user.id
+  end
+
+  def load_admin_courses
+    Course.all
   end
 end
