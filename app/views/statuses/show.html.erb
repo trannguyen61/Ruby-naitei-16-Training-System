@@ -1,5 +1,8 @@
 <%= render "shared/course_info" %>
-<%= @status.name %>
+<div class="card subject-status-container">
+  <%= render partial: "subject_status" %>
+</div>
+
 <div class="subject-container">
   <%= render partial: "task_status", collection: @task_statuses%>
 </div>

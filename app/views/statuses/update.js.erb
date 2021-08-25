@@ -1,0 +1,2 @@
+$(".subject-status-container").html('<%= j render(partial: 'statuses/subject_status', collection: @status.reload) %>');
+$(".subject-container").html('<%= j render(partial: 'statuses/task_status', collection: @task_statuses.reload) %>');
