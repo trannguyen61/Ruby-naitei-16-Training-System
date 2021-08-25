@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
   POST_ATTRS = %i(name description start_time).freeze
   PATCH_ATTRS = %i(name description activated).freeze
+  FINISH_ATTRS = %i(finish_time).freeze
 
   has_many :subjects, dependent: :destroy
   has_many :tasks, through: :subjects
@@ -29,10 +30,10 @@ class Course < ApplicationRecord
   end
 
   def status
-    if activated
+    if finish_time
+      I18n.t "finished"
+    elsif activated
       I18n.t "in_progress"
-    elsif finish_time
-      I18n.t "finised"
     else
       I18n.t "not_activated"
     end

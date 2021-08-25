@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     resources :users, except: :new
-    resources :courses
+    resources :courses do
+      member do
+        patch :finish
+      end
+    end
     resources :subjects
     resources :tasks, except: %i(index show)
     resources :enrollments, only: %i(show create destroy)
