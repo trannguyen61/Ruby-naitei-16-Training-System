@@ -1,4 +1,6 @@
 class EnrollmentsController < CourseMembersController
+  before_action :load_enrollment, except: :create
+
   def create
     enrollment = @course.enrollments.build user_id: @user.id
     if enrollment.save
@@ -9,13 +11,21 @@ class EnrollmentsController < CourseMembersController
   end
 
   def destroy
-    enrollment = Enrollment.find_by id: params[:id]
-    fail_respond t("data_not_found") unless enrollment
-    @course = enrollment.course
-    if enrollment.destroy
+    if @enrollment.destroy
       success_respond t("delete_member_success"), @course
     else
       fail_respond t("delte_member_fail"), @course
+    end
+  end
+
+  private
+
+  def load_enrollment
+    @enrollment = Enrollment.find_by id: params[:id]
+    if @enrollment
+      @course = @enrollment.course
+    else
+      fail_respond t("data_not_found"), courses_path
     end
   end
 end

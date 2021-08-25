@@ -16,10 +16,10 @@ class CourseMembersController < ApplicationController
     @user = User.find_by email: params[:email]
     return if @user
 
-    fail_respond t("not_found")
+    fail_respond t("not_found"), @course
   end
 
   def record_not_unique_rescue
-    fail_respond t "member_added"
+    fail_respond t "member_added", @course
   end
 end

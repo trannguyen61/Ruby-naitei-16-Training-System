@@ -10,7 +10,7 @@
       </div>
     </div>
   <% end %>
-  <%= render @courses %>
+  <%= render partial: "course", collection: @courses %>
 </div>
 <div class="row">
   <%= paginate @courses, theme: "bootstrap-5"%>

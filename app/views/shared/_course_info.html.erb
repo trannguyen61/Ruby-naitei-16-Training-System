@@ -1,0 +1,20 @@
+<div class="row course_info">
+  <div class="col-3">
+    <%= image_tag Settings.pic_url, alt: @course.name, class: "card-img-top info-img" %>
+  </div>
+  <div class="col-9 d-flex flex-column bd-highlight mb-3">
+    <h2 class="p-2 bd-highlight">
+      <span class="badge bg-info text-dark"><%= @course.status %></span>
+      <%= @course.name %>
+    </h2>
+    <div class="p-2 bd-highlight">
+      <%= "#{t "expected_time"}: #{@course.start_time.strftime Settings.date_format}-#{@course.estimated_end_time.strftime Settings.date_format}" %>
+    </div>
+    <% if @course.supervisors.include? current_user %>
+      <div class="me-auto p-2 bd-highlight d-flex align-items-end">
+        <%= link_to t(".edit"), edit_course_path(@course), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
