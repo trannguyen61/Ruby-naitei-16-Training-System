@@ -24,6 +24,10 @@ en:
   subjects_list: "Subjects list"
   trainees_list: "Trainees list"
   supervisors_list: "Supervisor list"
+  complete_status: "Complete"
+  success_updated: "Updated successfully."
+  done_status: "Completed"
+  wrong_start_time: "Subject hasn't started yet."
   layouts:
     application:
       project_name: "Training System"
@@ -135,6 +139,9 @@ en:
       fail_updated: "Updated failed."
     destroy:
       success_destroy: "Destroyed successfully"
+  statuses:
+    subject_status:
+      finished_rate: "Finished rate"
   subjects:
     delete_confirm: "You sure?"
     index:
@@ -257,3 +264,6 @@ en:
           attributes:
             user:
               supervisor_only: "Not Supervisor"
+        status:
+          attributes:
+            finishable_type: "Not permitted type"

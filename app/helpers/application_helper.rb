@@ -11,4 +11,12 @@ module ApplicationHelper
       Settings.supervisor_report
     end
   end
+
+  def hasnt_finished_course?
+    @finished_rate != Settings.complete_rate
+  end
+
+  def get_btn_type
+    hasnt_finished_course? ? "secondary" : "greeny"
+  end
 end

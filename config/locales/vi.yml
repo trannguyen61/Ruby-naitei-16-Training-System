@@ -24,6 +24,10 @@ vi:
   subjects_list: "Danh sách môn học"
   trainees_list: "Danh sách Học viên"
   supervisors_list: "Danh sách Giảng viên"
+  complete_status: "Hoàn thành"
+  success_updated: "Cập nhật thành công."
+  done_status: "Đã hoàn thành"
+  wrong_start_time: "Chưa đến thời gian học."
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
@@ -135,6 +139,9 @@ vi:
       fail_updated: "Cập nhật thất bại."
     destroy:
       success_destroy: "Xóa thành công."
+  statuses:
+    subject_status:
+      finished_rate: "Tỉ lệ hoàn thành"
   subjects:
     delete_confirm: "Bạn có chắc muốn xóa chứ?"
     index:
@@ -178,6 +185,7 @@ vi:
       invalid_subject: "Lỗi: Môn học không tồn tại"
       must_start_after_course: "Lỗi: Thời gian bắt đầu môn học phải sau theo thời gian bắt đầu khóa học"
   tasks:
+    success_create: "Nhiệm vụ đã được tạo thành công!"
     task_form:
       title: "Tạo nhiệm vụ"
       task_name: "Tên"
@@ -253,3 +261,6 @@ vi:
           attributes:
             user:
               supervisor_only: "Không phải giảng viên"
+        status:
+          attributes:
+            finishable_type: "Không cho phép loại này"
