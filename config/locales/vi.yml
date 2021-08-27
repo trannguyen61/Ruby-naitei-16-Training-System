@@ -18,6 +18,7 @@ vi:
   delete_confirm: "Bạn có chắc muốn xóa chứ?"
   report_not_found: "Báo cáo không tồn tại"
   expected_time: "Thời gian dự kiến"
+  finished_time: "Thòi gian kết thúc thực tế"
   subjects_list_name: "Môn học"
   trainees_list_name: "Học viên"
   supervisors_list_name: "Giảng viên"
@@ -83,6 +84,16 @@ vi:
     edit:
       submit: "Cập nhật"
       name: "Cập nhật thông tin cho"
+    finish:
+      course_finished: "Đã kết thúc khóa học"
+      not_activated: "Lỗi: Khóa học này chưa được kích hoạt"
+      error_occurred: "Lỗi: Có gì đó không ổn"
+      no_trainee: "Cảnh báo: Khóa học này đã bắt đầu nhưng chưa có học viên!
+      Thay vì kết thúc, bạn có thể thử hủy kích hoạt khóa học."
+      can_not_finish: "Lỗi: Bạn không thể hoàn thành vì"
+      trainee_not_finish: "học viên chưa hoàn thành khóa học này"
+      finish_submit: "Kết thúc khóa"
+      confirm: "Bạn chắc chứ?"
   shared:
     error_messages:
       intro: "Biểu mẫu có"

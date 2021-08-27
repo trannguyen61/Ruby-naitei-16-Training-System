@@ -18,6 +18,7 @@ en:
   delete_confirm: "You sure?"
   report_not_found: "Report not found"
   expected_time: "Expected Time"
+  finished_time: "Finished Time"
   subjects_list_name: "Subjects"
   trainees_list_name: "Trainees"
   supervisors_list_name: "Supervisors"
@@ -83,6 +84,16 @@ en:
     edit:
       submit: "Update"
       name: "Update Info for"
+    finish:
+      course_finished: "Course Finished"
+      not_activated: "Error: This course hasn't activated"
+      error_occurred: "Error: Something went wrong"
+      no_trainee: "Warning: This course has started but no students yet!
+      Instead of ending, you can try to deactivate"
+      can_not_finish: "Error: You can't finish because"
+      trainee_not_finish: "who haven't finished this course"
+      finish_submit: "Finish Course"
+      confirm: "Are you sure?"
   shared:
     error_messages:
       intro: "The form contains"

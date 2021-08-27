@@ -10,9 +10,19 @@
     <div class="p-2 bd-highlight">
       <%= "#{t "expected_time"}: #{@course.start_time.strftime Settings.date_format}-#{@course.estimated_end_time.strftime Settings.date_format}" %>
     </div>
-    <% if @course.supervisors.include? current_user %>
+    <% if @course.finish_time %>
+      <div class="p-2 bd-highlight">
+        <%= "#{t "finished_time"}: #{@course.finish_time.strftime Settings.date_format}" %>
+      </div>
+    <% elsif @course.supervisors.include? current_user %>
       <div class="me-auto p-2 bd-highlight d-flex align-items-end">
         <%= link_to t(".edit"), edit_course_path(@course), class: "btn btn-primary" %>
+      </div>
+      <div class="me-auto p-2 bd-highlight d-flex align-items-end">
+        <%= form_for @course, url: finish_course_path(@course) do |f| %>
+          <%= f.hidden_field :finish_time, value: Time.zone.now %>
+          <%= f.submit t("courses.finish.finish_submit"), class: "btn btn-success", data: {:confirm => t("courses.finish.confirm")}%>   
+        <% end %>
       </div>
     <% end %>
   </div>

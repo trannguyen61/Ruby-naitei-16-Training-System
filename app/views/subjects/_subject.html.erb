@@ -7,7 +7,7 @@
       <%= link_to "#", class: "text-muted", "data-mdb-toggle":"tooltip", title: t("subjects.index.created_at") do %>
         <p class="small mb-0">
           <i class="fas fa-info-circle me-2"></i>
-          <%= subject.start_time %>
+          <%= subject.start_time.strftime Settings.date_format %>
         </p>
       <% end %>
     </td>

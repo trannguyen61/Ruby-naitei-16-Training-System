@@ -9,9 +9,11 @@
         <p class="card-text crop">
           <%= course.description %>
         </p>
+        <span class="badge bg-info text-dark"><%= course.status %></span>
       </div>
       <div class="card-footer text-muted">
-        <%= course.start_time %>
+        <%= t "activerecord.course.start_time" %> :
+        <%= course.start_time.strftime Settings.date_format %>
       </div>
     </div>
   <% end %>
