@@ -21,9 +21,9 @@ class Status < ApplicationRecord
   scope :subjects_ordered, ->{subject_type.ordered}
   scope :tasks_subject_id, ->(id){includes(:task).subject_id id}
 
-  def subject_finished_rate
+  def finished_rate
     if finishable_type == "Task"
-      errors.add :finishable_type, :not_permitted_type
+      finished? ? Settings.complete_rate : 0
     else
       task_statuses = enrollment.statuses.tasks_subject_id finishable_id
       total_tasks = task_statuses.length
