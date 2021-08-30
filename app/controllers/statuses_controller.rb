@@ -38,7 +38,7 @@ class StatusesController < ApplicationController
     if @status.finishable_type == "Subject"
       @task_statuses = @enrollment.statuses
                                   .tasks_subject_id @status.finishable_id
-      @finished_rate = @status.subject_finished_rate
+      @finished_rate = @status.finished_rate
     else
       fail_respond t("data_not_found"), courses_path
     end

@@ -55,3 +55,5 @@ config/environments/*.local.yml
 /config/application.yml
 /storage
 /public/packs
+
+/coverage/*
