@@ -37,7 +37,7 @@ FactoryBot.define do
         evaluator.subjects_count.times do |i|
           create :subject_with_tasks, course: course,
                  tasks_count: evaluator.tasks_count,
-                 start_time: (evaluator.subjects_count - i).days.from_now
+                 start_time: (evaluator.subjects_count - i - 1).days.from_now
         end
         course.reload
       end

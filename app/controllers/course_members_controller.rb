@@ -20,6 +20,6 @@ class CourseMembersController < ApplicationController
   end
 
   def record_not_unique_rescue
-    fail_respond t "member_added", @course
+    fail_respond t("member_added"), @course
   end
 end

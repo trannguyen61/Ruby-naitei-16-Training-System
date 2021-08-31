@@ -18,7 +18,7 @@ class EnrollmentsController < CourseMembersController
     if @enrollment.destroy
       success_respond t("delete_member_success"), @course
     else
-      fail_respond t("delte_member_fail"), @course
+      fail_respond t("delete_member_fail"), @course
     end
   end
 
