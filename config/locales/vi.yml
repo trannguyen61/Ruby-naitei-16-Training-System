@@ -150,6 +150,7 @@ vi:
       fail_updated: "Cập nhật thất bại."
     destroy:
       success_destroy: "Xóa thành công."
+      failed_destroy: "Xóa thất bại"
   statuses:
     subject_status:
       finished_rate: "Tỉ lệ hoàn thành"

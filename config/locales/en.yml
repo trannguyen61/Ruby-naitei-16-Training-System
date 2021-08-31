@@ -150,6 +150,7 @@ en:
       fail_updated: "Updated failed."
     destroy:
       success_destroy: "Destroyed successfully"
+      failed_destroy: "Destroyed failed"
   statuses:
     subject_status:
       finished_rate: "Finished rate"
