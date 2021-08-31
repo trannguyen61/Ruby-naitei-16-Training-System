@@ -23,6 +23,10 @@ FactoryBot.define do
     end
   end
 
+  factory :invalid_subject, parent: :subject do
+    start_time {1.year.ago}
+  end  
+
   factory :course do
     name {Faker::Educator.course_name}
     description {Faker::Lorem.sentence word_count: 5}
