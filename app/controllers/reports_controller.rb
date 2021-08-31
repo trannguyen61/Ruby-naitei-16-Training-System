@@ -37,9 +37,9 @@ class ReportsController < ApplicationController
 
   def destroy
     if @report.destroy
-      success_respond t(".success_destroy"), @report
+      success_respond t(".success_destroy"), reports_path
     else
-      fail_respond @report.errors.full_messages.to_sentence, @report
+      fail_respond t(".failed_destroy"), reports_path
     end
   end
 

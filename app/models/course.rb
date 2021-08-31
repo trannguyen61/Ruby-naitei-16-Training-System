@@ -11,7 +11,8 @@ class Course < ApplicationRecord
   has_many :supervisors, through: :supervisions, source: :user
 
   validates :name, presence: true,
-    length: {maximum: Settings.string.length.max}, uniqueness: true
+    length: {maximum: Settings.string.length.max},
+    uniqueness: {case_sensitive: true}
   validates :description, :start_time, presence: true
 
   scope :by_supervisor_id,
