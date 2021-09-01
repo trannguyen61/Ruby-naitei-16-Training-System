@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
   def success_respond message, path
     respond_to do |format|
       format.html do
-        flash[:sucess] = message
+        flash[:success] = message
         redirect_to path
       end
       format.js

@@ -2,7 +2,7 @@ require "rails_helper"
 include SessionsHelper
 
 RSpec.shared_examples "Reports required methods" do |method, action|
-  before do 
+  before do
     log_in trainee
   end
 
@@ -50,7 +50,7 @@ RSpec.describe ReportsController, type: :controller do
         log_in trainee
         get :index, params: {filter_date: {filter_date: Time.now}}
       end
-      
+
       it{expect(assigns(:reports)).to eq(reports.to_a.group_by(&:date))}
 
       it{expect(response).to render_template(:index)}
@@ -61,7 +61,7 @@ RSpec.describe ReportsController, type: :controller do
         log_in supervisor
         get :index, params: {filter_date: {filter_date: Time.now}}
       end
-      
+
       it{expect(assigns(:reports)).to eq(reports.to_a.group_by(&:date))}
 
       it{expect(response).to render_template(:index)}
@@ -174,7 +174,7 @@ RSpec.describe ReportsController, type: :controller do
 
       it do
         delete :destroy, params: {id: report, format: :html}
-        expect(flash[:sucess]).to eq I18n.t("reports.destroy.success_destroy")
+        expect(flash[:success]).to eq I18n.t("reports.destroy.success_destroy")
       end
 
       it do

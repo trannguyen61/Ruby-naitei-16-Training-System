@@ -16,6 +16,6 @@ Rails.application.routes.draw do
     resources :enrollments, only: %i(show create destroy)
     resources :supervisions, only: %i(create destroy)
     resources :reports
-    resources :statuses, execpt: :index
+    resources :statuses, except: :index
   end
 end
