@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         patch :finish
       end
     end
-    resources :subjects
+    resources :subjects, except: :index
     resources :tasks, except: %i(index show)
     resources :enrollments, only: %i(show create destroy)
     resources :supervisions, only: %i(create destroy)
