@@ -5,15 +5,46 @@
 
 <div class="card mb-3">
   <div class="card-body">
-    <%= form_tag reports_path, method: :get, class: "d-inline" do %>
-      <%= date_field :filter_date, :filter_date %>
-      <%= submit_tag t(".filter"), class: "btn btn-primary btn-greeny mt-0" %>
-    <% end %>
-    <button type="button" class="btn btn-info mt-0">
-      <%= link_to reports_path, class: "text-white" do %>
-        <i class="fa fa-redo"></i>
+    <%= search_form_for @q, class: "d-flex report-search" do |f| %>
+      <div class="search-group">
+        <div class="form-group">
+          <%= f.label :course_name_cont, t(".course") %>
+          <%= f.search_field :course_name_cont%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :content_cont, t(".content") %>
+          <%= f.search_field :content_cont%>
+        </div>
+      </div>
+
+      <div class="search-group">
+        <div class="form-group">
+          <%= f.label :date_dategteq, t(".date_gt") %>
+          <%= f.date_field :date_dategteq %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :date_datelteq, t(".date_lt") %>
+          <%= f.date_field :date_datelteq %>
+        </div>
+      </div>
+
+      <% if current_user.role_supervisor? %>
+        <div class="form-group mt-auto mb-3">
+          <%= f.label :created_at_date_equals, t(".created_at") %>
+          <%= f.date_field :created_at_date_equals %>
+        </div>
       <% end %>
-    </button>
+      
+      <%= f.submit t(".filter"), class: "btn btn-primary btn-greeny align-self-end mt-0 mb-3 me-3" %>
+
+      <button type="button" class="btn btn-info align-self-end mt-0 mb-3">
+        <%= link_to reports_path, class: "text-white" do %>
+          <i class="fa fa-redo"></i>
+        <% end %>
+      </button>
+    <% end %>
   </div>
 </div>
 

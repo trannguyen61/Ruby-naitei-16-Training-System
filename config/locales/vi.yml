@@ -132,6 +132,11 @@ vi:
     index:
       reports: "Báo cáo hàng ngày"
       filter: "Lọc"
+      date_gt: "Từ ngày"
+      date_lt: "Đến ngày"
+      course: "Khóa học"
+      content: "Nội dung chứa"
+      created_at: "Tạo vào ngày"
     user_report:
       course: "Khóa học"
       today_task: "Nhiệm vụ hôm nay"

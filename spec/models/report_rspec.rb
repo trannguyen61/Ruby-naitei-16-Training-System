@@ -34,4 +34,10 @@ RSpec.describe Report, type: :model do
 
     it {expect(Report.order_desc_date.pluck(:id)).to eq([another_report, *reports].pluck(:id))}
   end
+
+  describe "ransackable" do
+    it {expect(Report.ransackable_attributes).to eq(Report::USER_SEARCH_QUERY)}
+
+    it {expect(Report.ransackable_attributes(:admin)).to eq(Report::ADMIN_SEARCH_QUERY)}
+  end
 end
