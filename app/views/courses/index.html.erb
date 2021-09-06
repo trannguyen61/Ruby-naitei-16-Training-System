@@ -1,17 +1,71 @@
-<h1><%= t ".name" %></h1>
-<div class="row">
-  <%= paginate @courses, theme: "bootstrap-5"%>
-</div>
-<div class="row d-flex justify-content-start">
-  <% if current_user.role_supervisor? %>
+<% if current_user.role_supervisor? %>
+  <h1><%= t ".create" %></h1>
+  <div class="row">
     <div class="col-sm-12 col-md-6 col-xl-4 align-self-center mt-3 mb-3">
       <div class="d-flex justify-content-center">
-        <%= link_to "", new_course_path, class: "plus-button plus-button--large" %>
+        <div class="btn plus-button plus-button--large" data-bs-toggle="modal"
+             data-bs-target="#courseFormModal">
+        </div>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
+<h1><%= t ".name" %></h1>
+<div class="card mb-3">
+  <div class="card-body">
+    <%= search_form_for @q, url: courses_path, class: "d-flex report-search" do |f| %>
+      <div class="search-group">
+        <div class="form-group">
+          <%= f.label :name_cont, t(".course") %>
+          <%= f.search_field :name_cont %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description_cont, t(".description") %>
+          <%= f.search_field :description_cont %>
+        </div>
+        <div class="form-group">
+          <%= f.label :finish_time_not_null, t(".finished") %>
+          <%= f.check_box :finish_time_not_null  %>
+        </div>
+        <div class="form-group">
+          <%= f.label :activated_true, t(".activated") %>
+          <%= f.check_box :activated_true %>
+        </div>
+      </div>
+      <div class="search-group">
+        <div class="form-group">
+          <%= f.label :start_time_dategteq, t(".start_time_gt") %>
+          <%= f.date_field :start_time_dategteq %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_time_datelteq, t(".start_time_lt") %>
+          <%= f.date_field :start_time_datelteq %>
+        </div>
+        <div class="form-group">
+          <%= f.label :estimated_end_time_dategteq, t(".end_time_gt") %>
+          <%= f.date_field :estimated_end_time_dategteq %>
+        </div>
+        <div class="form-group">
+          <%= f.label :estimated_end_time_datelteq, t(".end_time_lt") %>
+          <%= f.date_field :estimated_end_time_datelteq %>
+        </div>
+      </div>
+      <%= f.submit t(".filter"), class: "btn btn-primary btn-greeny align-self-end mt-0 mb-3 me-3" %>
+      <button type="button" class="btn btn-info align-self-end mt-0 mb-3">
+        <%= link_to courses_path, class: "text-white" do %>
+          <i class="fa fa-redo"></i>
+        <% end %>
+      </button>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <%= paginate @courses, theme: "bootstrap-5" %>
+</div>
+<div class="row d-flex justify-content-start">
   <%= render partial: "course", collection: @courses %>
 </div>
 <div class="row">
-  <%= paginate @courses, theme: "bootstrap-5"%>
+  <%= paginate @courses, theme: "bootstrap-5" %>
 </div>
+<%= render partial: "form", locals: {name: t(".create"), button_text: t(".create")} %>

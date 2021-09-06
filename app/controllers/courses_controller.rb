@@ -1,14 +1,13 @@
 class CoursesController < ApplicationController
   before_action :logged_in_user
   before_action :supervisor_user, except: %i(index)
-  before_action ->{load_course params[:id]}, except: %i(index create new)
+  before_action ->{load_course params[:id]}, except: %i(index create)
   before_action ->{correct_supervisor @course},
-                only: %i(edit update destroy finish)
+                only: %i(update destroy finish)
   before_action :load_course_enrollments, only: %i(show finish)
 
   def index
-    @courses = send("load_#{current_user.role}_courses").page(params[:page])
-                                                        .per Settings.page_size
+    load_courses
   end
 
   def show
@@ -20,31 +19,22 @@ class CoursesController < ApplicationController
     @supervision = @course.supervisions.new
   end
 
-  def new
-    @course = Course.new
-  end
-
-  def edit; end
-
   def create
     @course = Course.new create_course_params
     if @course.save
       current_user.create_supervision @course.id
-      flash[:info] = t ".create_success"
-      redirect_to courses_path
+      load_courses
+      success_respond t(".create_success"), courses_path
     else
-      flash.now[:danger] = t ".create_fail"
-      render :new
+      fail_respond_render_js t(".create_fail"), courses_path
     end
   end
 
   def update
     if @course.update update_course_params
-      flash[:success] = t ".update_course_success"
-      redirect_to course_path(@course)
+      success_respond t(".update_course_success"), course_path(@course), true
     else
-      flash.now[:danger] = t ".update_course_fail"
-      render :edit
+      fail_respond_render_js t(".update_course_fail"), course_path(@course)
     end
   end
 
@@ -66,6 +56,12 @@ class CoursesController < ApplicationController
 
   def update_course_params
     params.require(:course).permit Course::PATCH_ATTRS
+  end
+
+  def load_courses
+    @course = Course.new
+    @q = send("load_#{current_user.role}_courses").ransack params[:q]
+    @courses = @q.result.page(params[:page]).per(Settings.page_size)
   end
 
   def load_trainee_courses

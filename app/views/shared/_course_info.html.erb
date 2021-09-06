@@ -16,12 +16,14 @@
       </div>
     <% elsif @course.supervisors.include? current_user %>
       <div class="me-auto p-2 bd-highlight d-flex align-items-end">
-        <%= link_to t(".edit"), edit_course_path(@course), class: "btn btn-primary" %>
+        <div class="btn btn-primary", data-bs-toggle="modal", data-bs-target="#courseFormModal">
+          <%= t "edit" %>
+        </div>
       </div>
       <div class="me-auto p-2 bd-highlight d-flex align-items-end">
         <%= form_for @course, url: finish_course_path(@course) do |f| %>
           <%= f.hidden_field :finish_time, value: Time.zone.now %>
-          <%= f.submit t("courses.finish.finish_submit"), class: "btn btn-success", data: {:confirm => t("courses.finish.confirm")}%>   
+          <%= f.submit t("courses.finish.finish_submit"), class: "btn btn-success", data: {:confirm => t("courses.finish.confirm")} %>
         <% end %>
       </div>
     <% end %>
