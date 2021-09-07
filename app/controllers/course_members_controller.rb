@@ -1,5 +1,5 @@
 class CourseMembersController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action ->{load_course params[:course_id]}, only: :create
   before_action ->{correct_supervisor @course}, only: :create
   before_action :load_user_by_email, only: :create

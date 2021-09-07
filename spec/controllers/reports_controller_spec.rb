@@ -1,9 +1,8 @@
 require "rails_helper"
-include SessionsHelper
 
 RSpec.shared_examples "Reports required methods" do |method, action|
-  before do
-    log_in trainee
+  before do 
+    sign_in trainee
   end
 
   context "incorrect user" do
@@ -47,7 +46,7 @@ RSpec.describe ReportsController, type: :controller do
   describe "GET #index" do
     context "trainee gets reports" do
       before do
-        log_in trainee
+        sign_in trainee
         get :index, params: {filter_date: {filter_date: Time.now}}
       end
 
@@ -58,7 +57,7 @@ RSpec.describe ReportsController, type: :controller do
 
     context "supervisor gets reports" do
       before do
-        log_in supervisor
+        sign_in supervisor
         get :index, params: {filter_date: {filter_date: Time.now}}
       end
 
@@ -70,7 +69,7 @@ RSpec.describe ReportsController, type: :controller do
 
   describe "GET #new" do
     before do
-      log_in trainee
+      sign_in trainee
       get :new
     end
 
@@ -80,7 +79,7 @@ RSpec.describe ReportsController, type: :controller do
   end
 
   describe "POST #create" do
-    before{log_in trainee}
+    before{sign_in trainee}
 
     context "with valid attributes" do
       before do
@@ -112,7 +111,7 @@ RSpec.describe ReportsController, type: :controller do
   end
 
   describe "GET #edit" do
-    before{log_in trainee}
+    before{sign_in trainee}
 
     context "required methods" do
       it_behaves_like "Reports required methods", :get, :edit
@@ -125,7 +124,7 @@ RSpec.describe ReportsController, type: :controller do
   end
 
   describe "PATCH #update" do
-    before{log_in trainee}
+    before{sign_in trainee}
 
     context "required methods" do
       it_behaves_like "Reports required methods", :patch, :update
@@ -159,7 +158,7 @@ RSpec.describe ReportsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    before{log_in trainee}
+    before{sign_in trainee}
 
     context "required methods" do
       it_behaves_like "Reports required methods", :delete, :destroy

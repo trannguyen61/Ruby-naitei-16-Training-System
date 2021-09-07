@@ -14,4 +14,8 @@ FactoryBot.define do
     password_confirmation {"password"}
     role {User.roles[:supervisor]}
   end
+
+  factory :invalid_user, parent: :trainee do
+    email {nil}
+  end
 end

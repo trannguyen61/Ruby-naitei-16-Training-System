@@ -27,7 +27,7 @@ RSpec.describe EnrollmentsController, type: :controller do
   let(:course){FactoryBot.create :course}
   let!(:enrollment){FactoryBot.create :enrollment, course: course, user: trainee}
   let!(:supervision){FactoryBot.create :supervision, course: course, user: supervisor}
-  before{log_in supervisor}
+  before{sign_in supervisor}
   describe "GET #show" do
     context "must load enrollment first" do
       it_behaves_like "Load Enrollment", :get, :show
