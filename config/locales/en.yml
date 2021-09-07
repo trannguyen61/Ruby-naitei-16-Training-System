@@ -29,6 +29,7 @@ en:
   success_updated: "Updated successfully."
   done_status: "Completed"
   wrong_start_time: "Subject hasn't started yet."
+  edit: "Edit"
   layouts:
     application:
       project_name: "Training System"
@@ -65,6 +66,18 @@ en:
     update_course_fail: "Course has been updated"
     index:
       name: "Courses"
+      course: "Course name"
+      description: "Description"
+      start_time_gt: "Start time after"
+      start_time_lt: "Start time before"
+      end_time_gt: "End time after"
+      end_time_lt: "End time before"
+      finished: "Finised"
+      activated: "Activated"
+      status: "Status"
+      filter: "Filter"
+      create: "Create New Course"
+      submit: "Create"
     new:
       name: "Create New Course"
       submit: "Create"

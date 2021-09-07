@@ -29,6 +29,7 @@ vi:
   success_updated: "Cập nhật thành công."
   done_status: "Đã hoàn thành"
   wrong_start_time: "Chưa đến thời gian học."
+  edit: "Cập nhật"
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
@@ -65,6 +66,18 @@ vi:
     update_course_fail: "Cập nhật khóa học thất bại"
     index:
       name: "Khóa học"
+      course: "Tên khóa học"
+      description: "Mô tả"
+      start_time_gt: "Bắt đầu sau"
+      start_time_lt: "Bắt đầu trước"
+      end_time_gt: "Kết thúc sau"
+      end_time_lt: "Kết thúc trước"
+      finished: "Đã hoàn thành"
+      activated: "Đã kích hoạt"
+      status: "Trạng thái"
+      filter: "Lọc"
+      create: "Tạo khóa học mới"
+      submit: "Tạo mới"
     new:
       name: "Tạo khóa học mới"
       submit: "Tạo mới"

@@ -1,0 +1,7 @@
+<% if flash[:success] %>
+  $('#courseFormModal').modal('hide');
+  $('#flashMessages').html('<%= j render(partial: "layouts/flash_messages") %>');
+  $('#courseInfo').html('<%= j render(partial: "shared/course_info") %>');
+<% else %>
+  $('#courseFormErrors').html('<%= j render(partial: "shared/error_messages", locals: {object: @course}) %>');
+<% end %>

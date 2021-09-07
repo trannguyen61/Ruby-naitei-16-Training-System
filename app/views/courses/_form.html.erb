@@ -1,16 +1,35 @@
-<%= form_for @course do |f| %>
-  <%= render partial: "shared/error_messages", locals: {object: @course} %>
-  <%= f.label :name, class: "required" %>
-  <%= f.text_field :name, class: "form-control" %>
-  <%= f.label :description, class: "required" %>
-  <%= f.text_area :description, class: "form-control" %>
-  <% if @course.new_record? %>
-    <%= f.label :start_time, class: "required" %>
-    <%= f.date_field :start_time, class: "form-control" %>
-  <% else %>
-    <%= f.label :activated, class: "required" %>
-    <%= f.check_box :activated %>
-    <br>
-  <% end %>
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<%= form_for @course, remote: true do |f| %>
+  <div class="modal fade" id="courseFormModal" tabindex="-1" aria-labelledby="courseFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="courseFormModalLabel"><%= name %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="courseFormErrors">
+            <%= render partial: "shared/error_messages", locals: {object: @course} %>
+          </div>
+          <%= f.label :name, class: "required" %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :description, class: "required" %>
+          <%= f.text_area :description, class: "form-control" %>
+          <% if @course.new_record? %>
+            <%= f.label :start_time, class: "required" %>
+            <%= f.date_field :start_time, class: "form-control" %>
+          <% else %>
+            <%= f.label :activated %>
+            <%= f.check_box :activated %>
+            <br>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <%= t ".close"%>
+          </button>
+          <%= f.submit button_text, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -8,6 +8,8 @@ class Subject < ApplicationRecord
   has_many :supervisors, through: :course
 
   after_create :create_statuses
+  after_save :update_course_estimated_end_time
+  after_destroy :update_course_estimated_end_time
 
   validates :name, presence: true,
             length: {maximum: Settings.subject.name.max_length}
@@ -39,5 +41,9 @@ class Subject < ApplicationRecord
       status = Status.new finishable: self
       enrollment.statuses << status
     end
+  end
+
+  def update_course_estimated_end_time
+    course.update_estimated_end_time
   end
 end

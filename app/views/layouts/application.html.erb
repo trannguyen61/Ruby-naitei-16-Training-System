@@ -12,15 +12,12 @@
       <% if logged_in? %>
         <%= render "layouts/sidebar" %>
       <% end %>
-      
       <div class="container-fluid px-0">
         <%= render "layouts/header" %>
         <div class="app-body">
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>">
-              <%= message %>
-            </div>
-          <% end %>
+          <div id="flashMessages">
+            <%= render "layouts/flash_messages" %>
+          </div>
           <div class="container-fluid">
             <%= yield %>
           </div>
