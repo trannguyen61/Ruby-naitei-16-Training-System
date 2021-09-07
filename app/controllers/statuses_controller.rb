@@ -1,11 +1,11 @@
 class StatusesController < ApplicationController
   before_action :logged_in_user, :load_status, :load_task_status
-  before_action :correct_user, :correct_start_time, only: %i(update)
+  before_action :correct_user, :correct_start_time,
+                :load_update_obj, only: %i(update)
 
   def show; end
 
   def update
-    @update_obj = Status.find_by id: params[:status_id]
     if @update_obj.update update_params
       handle_finished_all_subjects
       flash[:success] = t "success_updated"
@@ -61,5 +61,12 @@ class StatusesController < ApplicationController
     return unless @status.finishable.start_time > Time.now.utc
 
     fail_respond t("wrong_start_time"), courses_path
+  end
+
+  def load_update_obj
+    @update_obj = Status.find_by id: params[:status_id]
+    return if @update_obj
+
+    fail_respond t("data_not_found"), @status
   end
 end

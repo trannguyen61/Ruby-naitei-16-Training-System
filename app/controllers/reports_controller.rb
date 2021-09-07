@@ -3,8 +3,10 @@ class ReportsController < ApplicationController
   before_action :load_report, :correct_user, only: %i(edit update destroy)
 
   def index
-    @paginate_reports = filtered_reports.page(params[:page])
-                                        .per Settings.page_size
+    @q = filtered_reports.ransack params[:q],
+                                  auth_object: set_ransack_auth_object
+    @paginate_reports = @q.result.page(params[:page])
+                          .per(Settings.page_size)
     @reports = @paginate_reports.to_a.group_by(&:date)
   end
 
@@ -62,15 +64,14 @@ class ReportsController < ApplicationController
   end
 
   def filtered_reports
-    filter_rp = if current_user.role_trainee?
-                  current_user.reports.order_desc_date
-                else
-                  current_user.reports_by_own_courses
-                end
-    if params[:filter_date]
-      filter_rp = filter_rp.by_date(params[:filter_date][:filter_date])
+    if current_user.role_trainee?
+      current_user.reports.order_desc_date
+    else
+      current_user.reports_by_own_courses
     end
+  end
 
-    filter_rp
+  def set_ransack_auth_object
+    :admin if current_user.role_supervisor?
   end
 end

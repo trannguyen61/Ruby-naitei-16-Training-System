@@ -184,24 +184,18 @@ RSpec.describe ReportsController, type: :controller do
     end
 
     context "destroy failed" do
-      let(:another_report) {double(:report, user: trainee, course: course, id: 100)}
+      let(:another_report) {FactoryBot.create :report, user: trainee, course: course}
 
       before do
-        allow(another_report).to receive(:destroy).and_return(false)
-      end
-
-      it do
-        expect{delete :destroy, params: {id: another_report.id}}
-               .to_not change {Report.count}
-      end
-
-      it do
+        allow_any_instance_of(Report).to receive(:destroy).and_return(false)
         delete :destroy, params: {id: another_report.id, format: :html}
+      end
+
+      it do
         expect(controller).to set_flash[:danger]
       end
 
       it do
-        delete :destroy, params: {id: another_report.id, format: :html}
         expect(response).to redirect_to reports_path
       end
     end

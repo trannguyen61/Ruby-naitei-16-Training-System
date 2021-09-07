@@ -132,6 +132,11 @@ en:
     index:
       reports: "Reports"
       filter: "Filter"
+      date_gt: "Date from"
+      date_lt: "Date to"
+      course: "Course"
+      content: "Contains"
+      created_at: "Created at"
     user_report:
       course: "Course"
       today_task: "Today tasks"
