@@ -1,5 +1,6 @@
 class SupervisionsController < CourseMembersController
   before_action :load_supervision, except: :create
+  authorize_resource
 
   def create
     supervision = @course.supervisions.build user_id: @user.id

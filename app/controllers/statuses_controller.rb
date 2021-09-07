@@ -1,11 +1,12 @@
 class StatusesController < ApplicationController
   before_action :authenticate_user!, :load_status, :load_task_status
-  before_action :correct_user, :correct_start_time,
-                :load_update_obj, only: %i(update)
+  before_action :load_update_obj, only: %i(update)
+  authorize_resource
 
   def show; end
 
   def update
+    authorize! :update, @update_obj
     if @update_obj.update update_params
       handle_finished_all_subjects
       flash[:success] = t "success_updated"
@@ -24,10 +25,6 @@ class StatusesController < ApplicationController
     else
       fail_respond t("data_not_found"), courses_path
     end
-  end
-
-  def correct_user
-    redirect_to courses_path unless current_user? @status.user
   end
 
   def update_params
@@ -55,12 +52,6 @@ class StatusesController < ApplicationController
     return if @enrollment.update finish_time: finish_time
 
     fail_respond t("data_not_found"), courses_path
-  end
-
-  def correct_start_time
-    return unless @status.finishable.start_time > Time.now.utc
-
-    fail_respond t("wrong_start_time"), courses_path
   end
 
   def load_update_obj

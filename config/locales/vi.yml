@@ -30,6 +30,7 @@ vi:
   done_status: "Đã hoàn thành"
   wrong_start_time: "Chưa đến thời gian học."
   edit: "Cập nhật"
+  no_permission: "Không có quyền"
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"

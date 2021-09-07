@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+  rescue_from CanCan::AccessDenied do
+    fail_respond t("no_permission"), courses_path
+  end
+
   private
   def set_locale
     locale = params[:locale].to_s.strip.to_sym
@@ -28,17 +32,6 @@ class ApplicationController < ActionController::Base
 
     flash[:danger] = t "not_found"
     redirect_to root_path
-  end
-
-  def supervisor_user
-    redirect_to courses_path unless current_user.role_supervisor?
-  end
-
-  def correct_supervisor pass_object
-    return if pass_object.supervisors.include? current_user
-
-    flash[:danger] = t "subjects.error.no_permission"
-    redirect_to courses_path
   end
 
   def load_course course_id
