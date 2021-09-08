@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="app">
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <%= render "layouts/sidebar" %>
       <% end %>
       <div class="container-fluid px-0">

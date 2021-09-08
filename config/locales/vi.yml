@@ -238,8 +238,10 @@ vi:
     models:
       user:
         one: "Người dùng"
+        other: "Người dùng"
       trainee_info:
         one: "Thông tin học sinh"
+        other: "Thông tin học sinh"
     attributes:
       user:
         name: "Tên"

@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-  before_action :logged_in_user, :load_status, :load_task_status
+  before_action :authenticate_user!, :load_status, :load_task_status
   before_action :correct_user, :correct_start_time,
                 :load_update_obj, only: %i(update)
 

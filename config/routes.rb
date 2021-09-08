@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
-    get "/signup", to: "users#new"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
+    devise_for :users, controllers: {sessions: "sessions", registrations: "users"}
     resources :users, except: :new
     resources :courses, except: %i(new edit) do
       member do

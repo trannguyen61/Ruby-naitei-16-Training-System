@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :load_report, :correct_user, only: %i(edit update destroy)
 
   def index

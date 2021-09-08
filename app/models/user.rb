@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   CREATE_ATTRS = %i(name email gender role
     password password_confirmation).freeze
   UPDATE_ATTRS = %i(name email gender date_of_birth address
@@ -42,34 +45,12 @@ class User < ApplicationRecord
 
   validate :check_user_role, on: :create
 
-  has_secure_password
-
   class << self
     def digest string
       check = ActiveModel::SecurePassword.min_cost
       cost = check ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
-
-    def new_token
-      SecureRandom.urlsafe_base64
-    end
-  end
-
-  def remember
-    self.remember_token = User.new_token
-    update_attribute :remember_digest, User.digest(remember_token)
-  end
-
-  def authenticated? attribute, token
-    digest = send("#{attribute}_digest")
-    return false if digest.nil?
-
-    BCrypt::Password.new(digest).is_password?(token)
-  end
-
-  def forget
-    update_attribute :remember_digest, nil
   end
 
   def create_trainee
@@ -77,7 +58,7 @@ class User < ApplicationRecord
   end
 
   def check_user_role
-    return unless role_trainee? && role_supervisor?
+    return if role_trainee? || role_supervisor?
 
     errors.add :role, :not_permitted_role
   end

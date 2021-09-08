@@ -238,8 +238,10 @@ en:
     models:
       user:
         one: "User"
+        other: "User"
       trainee_info:
         one: "Trainee Info"
+        other: "Trainee Info"
     attributes:
       user:
         name: "Name"

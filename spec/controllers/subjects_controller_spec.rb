@@ -11,7 +11,7 @@ RSpec.describe SubjectsController, type: :controller do
   let!(:supervision){FactoryBot.create :supervision, course: course, user: supervisor}
 
   before :each do
-    log_in supervisor
+    sign_in supervisor
   end
 
   describe "GET #show" do

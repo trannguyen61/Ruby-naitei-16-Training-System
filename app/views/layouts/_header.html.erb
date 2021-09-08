@@ -6,23 +6,23 @@
         <%= link_to image_tag("#{lang}.png", alt: "Logo", class: "flag"), locale: "#{lang}" %>
       </li>
       <% end %>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <li class="nav-item dropdown ms-4">
           <%= link_to "#{t ".hello"}, #{current_user.name}", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role:"button", "data-bs-toggle":"dropdown" %>
           <ul class="dropdown-menu dropdown-menu dropdown-menu-lg-end">
             <li class="dropdown-item"><%= link_to t(".profile"), current_user %></li>
             <li class="dropdown-item"><%= link_to t(".change_password"), "#" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li class="dropdown-item"><%= link_to t(".logout"), logout_path, method: :delete, class: "text-danger" %></li>
+            <li class="dropdown-item"><%= link_to t(".logout"), destroy_user_session_path, method: :delete, class: "text-danger" %></li>
           </ul>
         </li>
       <% else %>
         <li class="nav-item ms-4">
-          <%= link_to t(".login"), login_path %>
+          <%= link_to t(".login"), new_user_session_path %>
         </li>
         <li class="nav-item">
           <button type="button" class="btn btn-primary">
-            <%= link_to t(".signup"), signup_path, class: "text-white" %>
+            <%= link_to t(".signup"), new_user_registration_path, class: "text-white" %>
           </button>
         </li>
       <% end %>
