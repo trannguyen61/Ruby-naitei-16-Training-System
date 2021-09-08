@@ -7,6 +7,7 @@ gem "bcrypt", "3.1.13"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass", "3.4.1"
 gem "bootstrap5-kaminari-views", "~> 0.0.1"
+gem "cancancan"
 gem "config"
 gem "devise"
 gem "figaro"

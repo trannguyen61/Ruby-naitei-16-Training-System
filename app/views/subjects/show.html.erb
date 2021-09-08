@@ -15,7 +15,7 @@
     </tbody>
   </table>
   <%= paginate @tasks, theme: "bootstrap-5" %>
-  <% if current_user.role_supervisor? %>
+  <% if can? :create, @task %>
     <%= render "tasks/task_form" %>
   <% end %>
 </div>

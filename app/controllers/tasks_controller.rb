@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!, :supervisor_user
   before_action :load_task, except: %i(create new)
   before_action ->{correct_supervisor @task}, only: %i(edit update destroy)
+  authorize_resource
 
   def new; end
 
