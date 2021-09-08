@@ -16,6 +16,14 @@
   </table>
   <%= paginate @subjects, theme: "bootstrap-5" %>
   <section>
+    <% if can? :create, @subject %>
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="btn plus-button plus-button--large" data-bs-toggle="modal" data-bs-target="#subjectFormModal">
+          </div>
+        </div>
+      </div>
+    <% end %>
     <%= render "subjects/subject_form" %>
   </section>
 </div>

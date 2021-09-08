@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
   before_action ->{correct_supervisor @course},
                 only: %i(update destroy finish)
   before_action :load_course_enrollments, only: %i(show finish)
+  authorize_resource
 
   def index
     load_courses

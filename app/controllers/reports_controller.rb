@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_report, :correct_user, only: %i(edit update destroy)
+  authorize_resource
 
   def index
     @q = filtered_reports.ransack params[:q],

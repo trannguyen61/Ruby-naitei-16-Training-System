@@ -1,5 +1,6 @@
 class EnrollmentsController < CourseMembersController
   before_action :load_enrollment, except: :create
+  authorize_resource
 
   def show
     @subject_statuses = @enrollment.statuses.subjects_ordered
