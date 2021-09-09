@@ -16,7 +16,8 @@
     <%= form_tag status_path, method: :patch, remote: true do %>
       <%= hidden_field_tag :status_id, @status.id %>
       <%= hidden_field_tag :status, :finished %>
-      <%= submit_tag t("complete_status"), class: "btn btn-#{get_btn_type} me-4", disabled: hasnt_finished_course? %>
+      <%= submit_tag t("complete_status"), class: "btn btn-#{get_btn_type} me-4",
+          disabled: can?(:update, @status) %>
     <% end %>
   <% end %>
 </div>

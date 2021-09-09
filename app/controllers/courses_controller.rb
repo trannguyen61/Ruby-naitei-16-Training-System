@@ -1,9 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :supervisor_user, except: %i(index)
   before_action ->{load_course params[:id]}, except: %i(index create)
-  before_action ->{correct_supervisor @course},
-                only: %i(update destroy finish)
   before_action :load_course_enrollments, only: %i(show finish)
   authorize_resource
 

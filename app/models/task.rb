@@ -6,6 +6,8 @@ class Task < ApplicationRecord
   has_many :statuses, as: :finishable, dependent: :destroy
   has_many :supervisors, through: :subject
 
+  delegate :start_time, to: :subject
+
   after_create :create_statuses
 
   validates :subject_id, presence: true

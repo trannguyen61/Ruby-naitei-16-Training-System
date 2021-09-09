@@ -30,6 +30,7 @@ en:
   done_status: "Completed"
   wrong_start_time: "Subject hasn't started yet."
   edit: "Edit"
+  no_permission: "Permission not allowed"
   layouts:
     application:
       project_name: "Training System"

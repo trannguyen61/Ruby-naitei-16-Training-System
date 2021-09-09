@@ -25,6 +25,41 @@ RSpec.describe Status, type: :model do
               .to eq(task_statuses[0...$tasks_count])}
   end
 
+  describe "#updateable?" do
+    before do
+      course.activated = true
+    end
+
+    context "ok task status" do
+      it "should return true" do
+        expect(task_statuses.last.updateable?).to eq(true)
+      end
+    end
+
+    context "unactivated course" do
+      before do
+        course.activated = false
+      end
+
+      it "should return false" do
+        expect(task_statuses.first.updateable?).to eq(false)
+      end
+    end
+
+    context "not start time yet" do
+
+      it "should return false" do
+        expect(task_statuses.first.updateable?).to eq(false)
+      end
+    end
+
+    context "not finished subject status" do
+      it "should return false" do
+        expect(subject_statuses.last.updateable?).to eq(false)
+      end
+    end
+  end
+
   describe "#finished_rate" do
     before do
       task_statuses.first.finished!

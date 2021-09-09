@@ -9,11 +9,13 @@ class Status < ApplicationRecord
              foreign_key: "finishable_id", optional: true
   belongs_to :task, ->{where(statuses: {finishable_type: "Task"})},
              foreign_key: "finishable_id", optional: true
+
   delegate :name, :description, to: :finishable
   delegate :name, :description, to: :task, prefix: true, allow_nil: true
   delegate :name, :description, to: :subject, prefix: true, allow_nil: true
   delegate :start_time, :finish_time, to: :subject
-  delegate :user, to: :enrollment
+  delegate :user, :course, to: :enrollment
+  delegate :start_time, prefix: true, to: :finishable
 
   scope :subject_type, ->{joins :subject}
   scope :ordered, ->{includes(:subject).order "subjects.start_time"}
@@ -35,5 +37,15 @@ class Status < ApplicationRecord
         0
       end
     end
+  end
+
+  def updateable?
+    return false unless course.activated
+
+    return false unless finishable_start_time <= Time.now.utc
+
+    return true unless finishable_type == "Subject"
+
+    finished_rate == Settings.complete_rate
   end
 end

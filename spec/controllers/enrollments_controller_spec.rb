@@ -57,7 +57,7 @@ RSpec.describe EnrollmentsController, type: :controller do
         post :create, params: {course_id: another_course}
       end
 
-      it{expect(flash[:danger]).to eq I18n.t("subjects.error.no_permission")}
+      it{expect(flash[:danger]).to eq I18n.t("no_permission")}
 
       it{expect(response).to redirect_to courses_path}
     end
@@ -68,7 +68,7 @@ RSpec.describe EnrollmentsController, type: :controller do
         post :create, params: {course_id: another_course}
       end
 
-      it{expect(flash[:danger]).to eq I18n.t("subjects.error.no_permission")}
+      it{expect(flash[:danger]).to eq I18n.t("no_permission")}
 
       it{expect(response).to redirect_to courses_path}
     end
@@ -90,7 +90,7 @@ RSpec.describe EnrollmentsController, type: :controller do
         post :create, params: {course_id: another_course}
       end
 
-      it{expect(flash[:danger]).to eq I18n.t("subjects.error.no_permission")}
+      it{expect(flash[:danger]).to eq I18n.t("no_permission")}
 
       it{expect(response).to redirect_to courses_path}
     end
