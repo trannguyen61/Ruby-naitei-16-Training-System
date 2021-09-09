@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= t ".greetings" %>,  <%= @user.name %></h1>
+    <p>
+      <%= t ".added" %> <%= @course.name %>.
+    </p>
+    <p>
+      <%= t ".welcome" %>
+    </p>
+    <footer style="padding-top: 15px; border-top: 1px solid lightgray;">
+      <p>Ⓒ 2021 
+      <%= t "layouts.footer.by" %> <strong><%= t "team" %></strong> - <%= t "layouts.footer.credit" %></p>
+    </footer>
+  </body>
+</html>

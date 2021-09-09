@@ -9,6 +9,7 @@ class EnrollmentsController < CourseMembersController
   def create
     enrollment = @course.enrollments.build user_id: @user.id
     if enrollment.save
+      UserMailer.add_to_course_email(@user, @course, enrollment).deliver_later
       success_respond t("add_member_success"), @course
     else
       fail_respond enrollment.errors.full_messages.to_sentence, @course
@@ -17,6 +18,9 @@ class EnrollmentsController < CourseMembersController
 
   def destroy
     if @enrollment.destroy
+      user = @enrollment.user
+      course = @enrollment.course
+      UserMailer.del_from_course_email(user, course).deliver_later
       success_respond t("delete_member_success"), @course
     else
       fail_respond t("delete_member_fail"), @course

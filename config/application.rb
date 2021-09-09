@@ -15,5 +15,6 @@ module RubyNaitei16TrainingSystem
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :vi
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.active_job.queue_adapter = :sidekiq
   end
 end
