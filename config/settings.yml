@@ -25,3 +25,5 @@ page_size: 8
 trainee_report: "trainee_report"
 supervisor_report: "supervisor_report"
 complete_rate: 100
+links:
+  enrollment: "http://localhost:3000/vi/enrollments/"

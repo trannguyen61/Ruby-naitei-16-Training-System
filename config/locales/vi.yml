@@ -1,4 +1,5 @@
 vi:
+  team: "Nhóm 2"
   please_login: "Hãy đăng nhập!"
   hello: "Hello world"
   in_progress: "Đang tiến hành"
@@ -235,6 +236,17 @@ vi:
       fail_destroy: "Lỗi: Xóa nhiệm vụ thất bại!"
     error:
       invalid_task: "Nhiệm vụ không tồn tại"
+  user_mailer:
+    add_to_course_email:
+      subject: "Bạn đã được thêm vào khóa học"
+      greetings: "Xin chào"
+      added: "Bạn đã được giảng viên thêm vào khóa học"
+      welcome: "Mong bạn có thể tận hưởng thời gian thực tập cùng chúng tôi nhé!"
+    del_from_course_email:
+      subject: "Bạn đã bị xóa khỏi khóa học"
+      greetings: "Xin chào"
+      added: "Bạn đã bị xóa khỏi khóa học"
+      welcome: "Mong sớm được gặp lại bạn!"
   activerecord:
     models:
       user:

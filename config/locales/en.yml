@@ -1,4 +1,5 @@
 en:
+  team: "Team2"
   please_login: "Please Login!"
   hello: "Hello world"
   in_progress: "In progress"
@@ -235,6 +236,17 @@ en:
       fail_destroy: "Error: Delete fail!"
     error:
       invalid_task: "Invalid task"
+  user_mailer:
+    add_to_course_email:
+      subject: "You have been added to course"
+      greetings: "Hi"
+      added: "You have been added to course"
+      welcome: "Hope you enjoy your training time with us!"
+    del_from_course_email:
+      subject: "You have been deleted from course"
+      greetings: "Hi"
+      added: "You have been deleted from course"
+      welcome: "See you again!"
   activerecord:
     models:
       user:

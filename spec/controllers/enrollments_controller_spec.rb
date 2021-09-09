@@ -42,6 +42,12 @@ RSpec.describe EnrollmentsController, type: :controller do
   end
 
   describe "POST #create" do
+    before do
+      message_delivery = instance_double(ActionMailer::MessageDelivery)
+      allow(UserMailer).to receive(:add_to_course_email).and_return(message_delivery)
+      allow(message_delivery).to receive(:deliver_later)
+    end
+
     context "with invalid course" do
       before do
         post :create, params: {course_id: -1}
@@ -124,6 +130,12 @@ RSpec.describe EnrollmentsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
+    before do
+      message_delivery = instance_double(ActionMailer::MessageDelivery)
+      allow(UserMailer).to receive(:del_from_course_email).and_return(message_delivery)
+      allow(message_delivery).to receive(:deliver_later)
+    end
+
     context "must load enrollment first" do
       it_behaves_like "Load Enrollment", :delete, :destroy
     end
