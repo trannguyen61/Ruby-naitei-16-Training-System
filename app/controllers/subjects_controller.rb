@@ -8,7 +8,7 @@ class SubjectsController < ApplicationController
   def show
     @tasks = @subject.tasks.oldest_task.page(params[:page])
                      .per Settings.subject.paginate
-    @task = Task.new
+    @task = @subject.tasks.build
   end
 
   def create
