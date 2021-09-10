@@ -1,10 +1,13 @@
 <div class="row course_info">
   <div class="col-3">
     <%= image_tag Settings.pic_url, alt: @course.name, class: "card-img-top info-img" %>
+    <div class="social-share-wrap">
+      <%= render "shared/social_sharing" %>
+    </div>
   </div>
   <div class="col-9 d-flex flex-column bd-highlight mb-3">
     <h2 class="p-2 bd-highlight">
-      <span class="badge bg-info text-dark"><%= @course.status %></span>
+      <span class="badge <%= @course.status %>"><%= t @course.status %></span>
       <%= @course.name %>
     </h2>
     <div class="p-2 bd-highlight">

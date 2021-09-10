@@ -1,0 +1,29 @@
+<% @message = t("user_mailer.add_to_course_email.welcome") + "\n" +
+              t("reports.index.course") + ": " + @course.name + "\n" +
+              t("subjects.show.description") + ": " + @course.description + "\n"%>
+              
+<a class="btn btn-social-icon btn-facebook" 
+  data-module="SocialShareButton"
+  data-module-text="<%= @message %>"
+  data-module-base-url="https://firstandthird.com/"
+  data-module-net="facebook">
+  <i class="fab fa-facebook fa-2x"></i>
+</a>
+
+<a class="btn btn-social-icon btn-twitter" 
+  data-module="SocialShareButton"
+  data-module-text="<%= @message %>"
+  data-module-tags="<%= @course.name %>"
+  data-module-base-url="<%= course_url @course %>"
+  data-module-net="twitter">
+  <i class="fab fa-twitter fa-2x"></i>
+</a>
+
+<a class="btn btn-social-icon btn-twitter"  
+  data-module="SocialShareButton"
+  data-module-text="<%= @message %>"
+  data-module-tags="<%= @course.name %>"
+  data-module-base-url="<%= course_url @course %>"
+  data-module-net="linkedin">
+  <i class="fab fa-linkedin fa-2x"></i>
+</a>

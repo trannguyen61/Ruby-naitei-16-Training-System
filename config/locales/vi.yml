@@ -3,7 +3,7 @@ vi:
   please_login: "Hãy đăng nhập!"
   hello: "Hello world"
   in_progress: "Đang tiến hành"
-  finished: "Hoàn thành"
+  finished: "Đã Hoàn thành"
   not_activated: "Chưa kích hoạt"
   no_permission: "Bạn không có quyền truy cập vào trang này."
   not_found: "Người dùng không tồn tại"
@@ -32,6 +32,7 @@ vi:
   wrong_start_time: "Chưa đến thời gian học."
   edit: "Cập nhật"
   no_permission: "Không có quyền"
+  add_new_subject: "Thêm môn học mới"
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
@@ -205,7 +206,7 @@ vi:
     destroy:
       success_destroy: "Xóa môn học thành công!"
       fail_destroy: "Xóa môn học thất bại!"
-    subject_form:
+    create_form:
       title: "Thêm môn học"
       subject_name: "Tên môn học"
       subject_description: "Mô tả"

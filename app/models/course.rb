@@ -24,11 +24,11 @@ class Course < ApplicationRecord
 
   def status
     if finish_time
-      I18n.t "finished"
+      "finished"
     elsif activated
-      I18n.t "in_progress"
+      "in_progress"
     else
-      I18n.t "not_activated"
+      "not_activated"
     end
   end
 
