@@ -97,6 +97,7 @@ vi:
       delete: "Hủy bỏ"
       add_trainee: "Thêm Học viên"
       add_supervisor: "Thêm giảng viên"
+      finished: "Hoàn thành"
     edit:
       submit: "Cập nhật"
       name: "Cập nhật thông tin cho"

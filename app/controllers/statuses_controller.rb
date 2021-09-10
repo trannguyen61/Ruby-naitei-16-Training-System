@@ -1,7 +1,6 @@
 class StatusesController < ApplicationController
   before_action :authenticate_user!, :load_status, :load_task_status
   before_action :load_update_obj, only: %i(update)
-  authorize_resource
 
   def show; end
 

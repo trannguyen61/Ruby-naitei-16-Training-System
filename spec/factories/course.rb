@@ -25,7 +25,11 @@ FactoryBot.define do
 
   factory :invalid_subject, parent: :subject do
     start_time {1.year.ago}
-  end  
+  end
+
+  factory :invalid_task, parent: :task do
+    name{"A" * (Settings.subject.name.max_length + 1)}
+  end
 
   factory :course do
     name {Faker::Educator.course_name}

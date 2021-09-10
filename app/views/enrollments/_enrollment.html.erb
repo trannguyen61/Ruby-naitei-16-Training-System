@@ -3,13 +3,20 @@
   <td><%= enrollment.user_name %></td>
   <td><%= enrollment.user_email %></td>
   <td>
-    <% if current_user.role_supervisor? %>
+    <% if enrollment.finish_time %>
+      <i class="fas fa-check-circle text-success"></i>
+    <% else %>
+      <i class="fas fa-times-circle text-danger"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if can? :update, enrollment %>
       <%= link_to enrollment, method: :delete, remote: true, data: {confirm: t("delete_confirm")},
       class: "text-danger", data: {"mdb-toggle": "tooltip"}, title: t("delete") do %>
         <i class="fa fa-trash-alt me-3"></i>
       <% end %>
     <% end %>
-    <%= link_to enrollment, class: "text-info", data: {"mdb-toggle": "tooltip"}, title: t("details") do %>
+    <%= link_to enrollment, class: "text-info", data: {"mdb-toggle": "tooltip"}, title: t("detail") do %>
       <i class="fa fa-eye me-3"></i>
     <% end %>
   </td>

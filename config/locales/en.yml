@@ -97,6 +97,7 @@ en:
       delete: "Delete"
       add_trainee: "Add Trainee"
       add_supervisor: "Add Supervisor"
+      finished: "Finished"
     edit:
       submit: "Update"
       name: "Update Info for"
