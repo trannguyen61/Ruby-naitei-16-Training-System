@@ -8,11 +8,11 @@
     </div>
   </div>
   <div class="tab-pane fade course-details" id="nav-trainees" role="tabpanel" aria-labelledby="nav-trainees-tab">
-    <%= render partial: "courses/users_list", locals: {users: @course.enrollments,
+    <%= render partial: "courses/users_list", locals: {users: @course.enrollments, is_trainees: true,
     list_name: t("trainees_list"), body_id: "trainees_tb_body", path: nil} %>
   </div>
   <div class="tab-pane fade course-details" id="nav-supervisors" role="tabpanel" aria-labelledby="nav-supervisors-tab">
-    <%= render partial: "courses/users_list", locals: {users: @course.supervisions,
+    <%= render partial: "courses/users_list", locals: {users: @course.supervisions, is_trainees: false,
     list_name: t("supervisors_list"), body_id: "trainees_tb_body", path: nil} %>
   </div>
 </div>

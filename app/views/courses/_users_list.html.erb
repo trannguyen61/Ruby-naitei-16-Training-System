@@ -16,6 +16,9 @@
         <th scope="col"><%= t "courses.show.id" %></th>
         <th scope="col"><%= t "courses.show.name" %></th>
         <th scope="col"><%= t "courses.show.email" %></th>
+        <% if is_trainees %>
+          <th scope="col"><%= t "courses.show.finished" %></th>
+        <% end %>
         <th scope="col"><%= t "courses.show.action" %></th>
       </tr>
     </thead>
