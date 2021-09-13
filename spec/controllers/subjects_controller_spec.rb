@@ -56,7 +56,7 @@ RSpec.describe SubjectsController, type: :controller do
 
       it{expect(controller).to set_flash[:danger]}
 
-      it{expect(response).to redirect_to course_path course.id}
+      it{expect(response).to redirect_to "subjects/create_form"}
     end
   end
 

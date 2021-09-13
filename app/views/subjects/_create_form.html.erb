@@ -1,13 +1,13 @@
-<div class="modal fade" id="subjectFormModal" tabindex="-1" aria-labelledby="subjectFormModalLabel" aria-hidden="true">
+<div class="modal fade" id="subjectCreateFormModal" tabindex="-1" aria-labelledby="subjectCreateFormModalLabel" aria-hidden="true">
   <%= form_for @subject, remote: true do |f| %>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="subjectFormModalLabel"><%= t ".title" %></h5>
+          <h5 class="modal-title" id="subjectCreateFormModalLabel"><%= t ".title" %></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div id="subjectFormErrors">
+          <div id="subjectCreateFormErrors">
             <%= render partial: "shared/error_messages", locals: {object: @subject} %>
           </div>
           <%= f.hidden_field :course_id, value: @course.id %>

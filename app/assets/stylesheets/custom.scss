@@ -182,3 +182,23 @@ a {
   max-width: 100%;
   height: auto;
 }
+
+.finished {
+  background-color: $finished !important;
+}
+
+.not_activated {
+  background-color: $not_actived !important;
+}
+
+.in_progress {
+  background-color: $in_progress !important;
+}
+
+.social-share-wrap {
+  margin-top: 20px;
+
+  a {
+    margin-left: 10px;
+  }
+}

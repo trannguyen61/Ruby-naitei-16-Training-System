@@ -32,6 +32,7 @@ en:
   wrong_start_time: "Subject hasn't started yet."
   edit: "Edit"
   no_permission: "Permission not allowed"
+  add_new_subject: "Add new subject"
   layouts:
     application:
       project_name: "Training System"
@@ -205,7 +206,7 @@ en:
     destroy:
       success_destroy: "Subject deleted!"
       fail_destroy: "Delete fail!"
-    subject_form:
+    create_form:
       title: "Create Subject"
       subject_name: "Subject name:"
       subject_description: "Description"

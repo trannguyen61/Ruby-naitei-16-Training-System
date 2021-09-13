@@ -13,12 +13,13 @@ class SubjectsController < ApplicationController
 
   def create
     @subject = Subject.new create_subject_params
+    @course = Course.find_by id: params[:subject][:course_id]
     if @subject.save
-      flash[:success] = t ".success_create"
+      success_respond t(".success_create"), course_path(@course)
     else
-      flash[:danger] = @subject.errors.full_messages.to_sentence
+      error_messages = @subject.errors.full_messages.to_sentence
+      fail_respond_render_js error_messages, "subjects/create_form"
     end
-    redirect_to course_path params[:subject][:course_id]
   end
 
   def edit; end

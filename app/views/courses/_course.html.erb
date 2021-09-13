@@ -9,8 +9,8 @@
         <p class="card-text crop">
           <%= course.description %>
         </p>
-        <span class="badge bg-info text-dark">
-          <%= course.status %>
+        <span class="badge <%= course.status %>">
+          <%= t course.status %>
         </span>
       </div>
       <div class="card-footer text-muted">

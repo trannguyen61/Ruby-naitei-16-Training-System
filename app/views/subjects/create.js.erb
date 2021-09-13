@@ -1,0 +1,5 @@
+<% if flash[:success] %>
+  window.location.replace("<%= course_path @course %>")
+<% else %>
+  $('#subjectCreateFormErrors').html('<%= j render(partial: "shared/error_messages", locals: {object: @subject}) %>');
+<% end %>
