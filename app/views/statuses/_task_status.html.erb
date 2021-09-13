@@ -10,7 +10,7 @@
       <%= form_tag status_path, method: :patch, remote: true do %>
         <%= hidden_field_tag :status_id, task_status.id %>
         <%= hidden_field_tag :status, :finished %>
-        <%= submit_tag t("complete_status"), class: "btn btn-primary btn-greeny my-2",
+        <%= submit_tag t(get_status_text), class: "btn btn-primary btn-greeny my-2",
             disabled: !can?(:update, task_status) %>
       <% end %>
     <% else %>

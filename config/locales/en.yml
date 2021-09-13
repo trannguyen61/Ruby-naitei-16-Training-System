@@ -26,13 +26,15 @@ en:
   subjects_list: "Subjects list"
   trainees_list: "Trainees list"
   supervisors_list: "Supervisor list"
-  complete_status: "Complete"
+  to_complete_status: "Complete"
+  yet_completed_status: "Not yet completed"
   success_updated: "Updated successfully."
   done_status: "Completed"
   wrong_start_time: "Subject hasn't started yet."
   edit: "Edit"
   no_permission: "Permission not allowed"
   add_new_subject: "Add new subject"
+  members: "member(s)"
   layouts:
     application:
       project_name: "Training System"
@@ -98,6 +100,7 @@ en:
       add_trainee: "Add Trainee"
       add_supervisor: "Add Supervisor"
       finished: "Finished"
+      finish_time: "Finish time"
     edit:
       submit: "Update"
       name: "Update Info for"
@@ -111,6 +114,8 @@ en:
       trainee_not_finish: "who haven't finished this course"
       finish_submit: "Finish Course"
       confirm: "Are you sure?"
+    course:
+      estimated_time: "Estimated time"
   shared:
     error_messages:
       intro: "The form contains"
@@ -189,6 +194,7 @@ en:
       created_at: "Start time"
       edit: "Edit"
       delete: "Delete"
+      finish_time: "Finish time"
     show:
       task_list: "Yours task"
       name: "Name"
