@@ -19,4 +19,12 @@ module ApplicationHelper
   def get_btn_type
     hasnt_finished_course? ? "secondary" : "greeny"
   end
+
+  def get_status_text
+    if current_user.role_trainee?
+      "to_complete_status"
+    else
+      "yet_completed_status"
+    end
+  end
 end

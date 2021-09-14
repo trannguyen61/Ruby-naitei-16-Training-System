@@ -14,8 +14,8 @@
         </span>
       </div>
       <div class="card-footer text-muted">
-        <%= t "activerecord.course.start_time" %> :
-        <%= course.start_time.strftime Settings.date_format %>
+        <%= t ".estimated_time" %>:
+        <%= course.start_time.strftime Settings.date_format %> - <%= course.estimated_end_time.strftime Settings.date_format %>
       </div>
     </div>
   <% end %>

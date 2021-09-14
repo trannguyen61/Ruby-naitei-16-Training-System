@@ -13,6 +13,9 @@
     <div class="p-2 bd-highlight">
       <%= "#{t "expected_time"}: #{@course.start_time.strftime Settings.date_format}-#{@course.estimated_end_time.strftime Settings.date_format}" %>
     </div>
+    <div class="p-2 bd-highlight" id="member-amount">
+      <%= "#{@course.enrollments.count} #{t "members"}" %>
+    </div>
     <% if @course.finish_time %>
       <div class="p-2 bd-highlight">
         <%= "#{t "finished_time"}: #{@course.finish_time.strftime Settings.date_format}" %>

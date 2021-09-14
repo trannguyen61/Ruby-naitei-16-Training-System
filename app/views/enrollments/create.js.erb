@@ -1,1 +1,2 @@
 $("#trainees_tb_body").html('<%= j render(@course.reload.enrollments.includes(:user)) %>');
+$("#member-amount").html('<%= "#{@course.enrollments.count} #{t "members"}" %>');

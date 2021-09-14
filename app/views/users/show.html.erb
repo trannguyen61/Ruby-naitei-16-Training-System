@@ -5,14 +5,14 @@
     <div class="card">
       <div class="card-body mx-2">
         <h4 class="card-title mb-4">
-            <strong><%= t "activerecord.models.user.#{@user.role}" %></strong>
+            <strong><%= t "activerecord.attributes.user.#{@user.role}" %></strong>
         </h4>
 
         <h5>
           <strong><%= @user.name %></strong>
         </h5>
         <p>
-          <%= t "activerecord.models.user.email" %>: <%= @user.email %>
+          <%= t "activerecord.attributes.user.email" %>: <%= @user.email %>
         </p>
 
         <% if current_user? @user %>
@@ -35,11 +35,11 @@
           <% @user_fields.each do |key| %>
             <div class="row mx-1">
               <div class="col-4">
-                <p><strong><%= t "activerecord.models.user.#{key}" %></strong></p>
+                <p><strong><%= t "activerecord.attributes.user.#{key}" %></strong></p>
               </div>
               <div class="col-8">
                 <% if @translated_fields.include? key %>
-                  <p><%= t "activerecord.models.user.#{@user[key]}" %></p>
+                  <p><%= t "activerecord.attributes.user.#{@user[key]}" %></p>
                 <% elsif @date_fields.include?(key) && @user[key].present? %>
                   <p><%= @user[key].strftime Settings.date_format %></p>
                 <% else %>
@@ -59,7 +59,7 @@
             <% @trainee_fields.each do |key| %>
               <div class="row mx-1">
                 <div class="col-4">
-                  <p><strong><%= t "activerecord.models.trainee_info.#{key}" %></strong></p>
+                  <p><strong><%= t "activerecord.attributes.trainee_info.#{key}" %></strong></p>
                 </div>
                 <div class="col-8">
                   <% if @date_fields.include? key && @trainee[key].present? %>

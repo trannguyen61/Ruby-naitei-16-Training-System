@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    root "static_pages#home"
+    root "courses#index"
     devise_for :users, controllers: {sessions: "sessions", registrations: "users"}
     resources :users, except: :new
     resources :courses, except: %i(new edit) do
