@@ -35,6 +35,7 @@ en:
   no_permission: "Permission not allowed"
   add_new_subject: "Add new subject"
   members: "member(s)"
+  not_yet_started: "Not yet started"
   layouts:
     application:
       project_name: "Training System"

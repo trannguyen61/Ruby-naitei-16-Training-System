@@ -4,7 +4,11 @@
   </div>
   <div class="col-9 d-flex flex-column bd-highlight my-3">
     <h2 class="p-2 bd-highlight">
-      <span class="badge bg-info text-dark <%= subject_status.status %>"><%= t subject_status.status %></span>
+      <% if subject_status.start_time.strftime(Settings.date_format) < Time.now %>
+        <span class="badge bg-info text-dark <%= subject_status.status %>"><%= t subject_status.status %></span>
+      <% else %>
+        <span class="badge bg-danger"><%= t "not_yet_started" %></span>
+      <% end %>
       <%= link_to subject_status.subject_name, subject_status %>
     </h2>
     <div class="p-2 bd-highlight">

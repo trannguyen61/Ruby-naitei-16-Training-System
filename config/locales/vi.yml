@@ -35,6 +35,7 @@ vi:
   no_permission: "Không có quyền"
   add_new_subject: "Thêm môn học mới"
   members: "thành viên"
+  not_yet_started: "Chưa đến thời gian học"
   layouts:
     application:
       project_name: "Hệ Thống Đào Tạo"
